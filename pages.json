@@ -7,9 +7,10 @@
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "",
-				"navigationStyle": "custom",
+				"navigationStyle": "custom", //自定义导航栏样式
 				"app-plus": {
-					"titleView": false
+					"titleView": false,
+					 "scrollIndicator":"none" // 在该页APP平台不显示滚动条 
 				}
 			}
 		}, {
