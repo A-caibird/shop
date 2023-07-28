@@ -3,7 +3,6 @@
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-
 		{
 			"path": "pages/foodList/foodList",
 			"style": {
@@ -15,7 +14,8 @@
 					"scrollIndicator": "none" // 在该页APP平台不显示滚动条 
 				}
 			}
-		}, {
+		},
+		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "",
@@ -38,7 +38,11 @@
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
-		"navigationStyle": "custom"
+		"navigationStyle": "custom",
+		"app-plus": { //app平台
+			"bounce": "none" //禁止滚动
+		}
+
 	},
 	"uniIdRouter": {}
 }
