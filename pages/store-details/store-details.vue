@@ -346,7 +346,7 @@
 
 		.box {
 			position: relative;
-			top: 240rpx;
+			top: 140rpx;
 			z-index: 1;
 			padding: 0rpx 20rpx;
 			padding-bottom: 50rpx;
