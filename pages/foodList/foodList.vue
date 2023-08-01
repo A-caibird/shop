@@ -53,7 +53,7 @@
 						</view>
 					</view>
 					<view class="item">
-						<view>
+						<view class="title">
 							<text>筛选</text>
 						</view>
 						<view class="box">
