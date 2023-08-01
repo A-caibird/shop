@@ -3,15 +3,7 @@
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-		    "path" : "pages/sub-store-list/sub-store-list",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false
-		    }
-		    
-		},
+		
 		{
 		    "path" : "pages/store-details/store-details",
 		    "style" :                                                                                    
@@ -36,6 +28,14 @@
 					"scrollIndicator": "none" // 在该页APP平台不显示滚动条 
 				}
 			}
+		},{
+		    "path" : "pages/sub-store-list/sub-store-list",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
 		},
 		{
 			"path": "pages/index/index",

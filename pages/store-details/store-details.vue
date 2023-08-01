@@ -124,15 +124,14 @@
 							领取优惠券后下单更优惠【仅本店可用】
 						</text>
 					</view>
-					<view class="detail">
-
+					<view class="detail" @tap="show=true">
 						<text>
 							详情
 						</text>
 						<image src="/static/store-details/toRight.png">
-
 						</image>
 					</view>
+					<pop v-model:show="show"></pop>
 				</view>
 			</view>
 
@@ -264,12 +263,33 @@
 </template>
 
 <script>
+	import pop from '../../components/store-details/pop.vue'
 	export default {
+		components:{
+			pop
+		},
 		data() {
 			return {
 				value: 0,
 				value2: 0,
-				value3: 0
+				value3: 0,
+				title: '标题',
+				list: [{
+						name: '选项一',
+						subname: "选项一描述",
+						color: '#ffaa7f',
+						fontSize: '20'
+					},
+					{
+						name: '选项二禁用',
+						disabled: true
+					},
+					{
+						name: '开启load加载', //开启后文字不显示
+						loading: true
+					}
+				],
+				show:false
 			}
 		},
 		methods: {
@@ -291,6 +311,7 @@
 		overflow-y: auto;
 		@include flexY();
 
+		
 		.navbar {
 			width: 100%;
 			$Ih: 60rpx;
@@ -882,7 +903,8 @@
 
 				.shop-info {
 					margin: 20rpx 0rpx;
-					margin-top:30rpx;
+					margin-top: 30rpx;
+
 					.tag {
 						display: inline;
 						padding: 10rpx 10rpx;
@@ -898,7 +920,7 @@
 						}
 					}
 
-					
+
 				}
 			}
 		}
