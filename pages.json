@@ -3,7 +3,20 @@
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		
+		{
+		    "path" : "pages/combo-detail/combo-detail",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false,
+				"app-plus": {
+					"titleView": false,
+					"scrollIndicator": "none" // 在该页APP平台不显示滚动条			
+				}
+		    }
+			
+		    
+		},
 		{
 		    "path" : "pages/store-details/store-details",
 		    "style" :                                                                                    
@@ -12,8 +25,7 @@
 		        "enablePullDownRefresh": false,
 				"app-plus": {
 					"titleView": false,
-					"scrollIndicator": "none" // 在该页APP平台不显示滚动条
-					
+					"scrollIndicator": "none" // 在该页APP平台不显示滚动条			
 				}
 		    }
 		    
