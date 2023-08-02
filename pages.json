@@ -3,46 +3,56 @@
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		
+
+
 		{
-		    "path" : "pages/crowdfunding-home/crowdfunding-home",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false,
+			"path": "pages/shopCar/shopCar",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
 				"app-plus": {
 					"titleView": false,
 					"scrollIndicator": "none" // 在该页APP平台不显示滚动条			
 				}
-		    }
-		    
-		},{
-		    "path" : "pages/combo-detail/combo-detail",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false,
+			}
+
+		}, {
+			"path": "pages/combo-detail/combo-detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
 				"app-plus": {
 					"titleView": false,
 					"scrollIndicator": "none" // 在该页APP平台不显示滚动条			
 				}
-		    }
-			
-		    
+			}
+
+
 		},
 		{
-		    "path" : "pages/store-details/store-details",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false,
+			"path": "pages/crowdfunding-home/crowdfunding-home",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
 				"app-plus": {
 					"titleView": false,
 					"scrollIndicator": "none" // 在该页APP平台不显示滚动条			
 				}
-		    }
-		    
-		},{
+			}
+
+		},
+		{
+			"path": "pages/store-details/store-details",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"app-plus": {
+					"titleView": false,
+					"scrollIndicator": "none" // 在该页APP平台不显示滚动条			
+				}
+			}
+
+		}, {
 			"path": "pages/foodList/foodList",
 			"style": {
 				"navigationBarTitleText": "",
@@ -53,14 +63,13 @@
 					"scrollIndicator": "none" // 在该页APP平台不显示滚动条 
 				}
 			}
-		},{
-		    "path" : "pages/sub-store-list/sub-store-list",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "",
-		        "enablePullDownRefresh": false
-		    }
-		    
+		}, {
+			"path": "pages/sub-store-list/sub-store-list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		},
 		{
 			"path": "pages/index/index",
@@ -79,7 +88,8 @@
 				"enablePullDownRefresh": false
 			}
 		}
-    ],
+
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
