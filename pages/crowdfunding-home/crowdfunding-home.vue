@@ -266,6 +266,7 @@
 				background-color: #ffffff;
 				@include flexY;
 				width: 342rpx;
+				border-radius: 16rpx;
 				.product-photo {
 					width: 342rpx;
 					height: 342rpx;
