@@ -22,65 +22,63 @@
 				<left-tag name="美食"></left-tag>
 				<view class="divi">
 				</view>
-				<view class="store">
-					<view class="store-name">
-						<view class="select">
-							<u-checkbox-group>
-								<u-checkbox shape="circle" activeColor="#48C368" v-model="item.check"
-									v-for="(item,index) of select" :key="index">
-								</u-checkbox>
-							</u-checkbox-group>
-						</view>
-						<view class="name">
-							<text>大叔小子烤鱼</text>
-						</view>
-						<view class="icon">
-							<image src="@/static/toRight.png">
-							</image>
-						</view>
-					</view>
-					<view class="order" v-for="item of 3" :key="item">
-						<view class="select">
-							<u-checkbox-group>
-								<u-checkbox shape="circle" activeColor="#48C368">
+				<view class="store" v-for="(item,index) in storeList" :key="index">
+					<u-checkbox-group placement="column" v-model="item.select" @change="checkboxChange">
 
+						<view class="store-name">
+							<view class="select">
+								<u-checkbox shape="circle" activeColor="#48C368" :name="item.storeName">
 								</u-checkbox>
-							</u-checkbox-group>
+							</view>
+							<view class="name">
+								<text>{{item.storeName}}</text>
+							</view>
+							<view class="icon">
+								<image src="@/static/toRight.png">
+								</image>
+							</view>
 						</view>
-						<view class="food-photo">
-							<image src="@/static/shopCar/food1.png">
+						<view class="order" v-for="(item1,index1) of item.comboList" :key="index1">
+							<view class="select">
+								<u-checkbox shape="circle" activeColor="#48C368" :name="item1.comboName">
+								</u-checkbox>
 
-							</image>
-						</view>
-						<view class="combo-info">
-							<view class="combo-name">
+							</view>
+							<view class="food-photo">
+								<image src="@/static/shopCar/food1.png">
+
+								</image>
+							</view>
+							<view class="combo-info">
+								<view class="combo-name">
+									<text>
+										{{item1.comboName}}
+									</text>
+								</view>
+								<view class="time">
+									<text>
+										周一至周五
+									</text>
+									<text>
+										免预约
+									</text>
+								</view>
+								<view class="price">
+									<text>
+										¥125.9
+									</text>
+									<text>
+										¥179
+									</text>
+								</view>
+							</view>
+							<view class="num">
 								<text>
-									2-3人超值烤鱼套餐
+									×1
 								</text>
 							</view>
-							<view class="time">
-								<text>
-									周一至周五
-								</text>
-								<text>
-									免预约
-								</text>
-							</view>
-							<view class="price">
-								<text>
-									¥125.9
-								</text>
-								<text>
-									¥179
-								</text>
-							</view>
 						</view>
-						<view class="num">
-							<text>
-								×1
-							</text>
-						</view>
-					</view>
+					</u-checkbox-group>
 				</view>
 				<view class="divi dis">
 				</view>
@@ -88,7 +86,7 @@
 
 					<view class="part1">
 						<view class="oneSelect">
-							<u-checkbox-group v-model="select">
+							<u-checkbox-group>
 								<u-checkbox shape="circle" activeColor="#48C368">
 								</u-checkbox>
 							</u-checkbox-group>
@@ -150,14 +148,40 @@
 		},
 		data() {
 			return {
-				allSelect: true,
-				select: [{
-					check: false
-				}],
+				select1: [],
+				storeList: [{
+					storeName: '大叔小子烤鱼',
+					select: [],
+					comboList: [{
+							comboName: "2-3人超值烤鱼套餐",
+
+						},
+						{
+							comboName: "小酥肉"
+						}
+					]
+				}]
 			}
 		},
 		methods: {
+			checkboxChange: function(n) {
+				console.log('change', n);
+				const fir = n[0];
+				for (let [index, i] of this.storeList.entries()) {
 
+					console.log(i.storeName, fir)
+					if (i.storeName === fir) {
+						let temp = [fir];
+						for (let i of this.storeList[index].comboList) {
+							temp.push(i.comboName)
+						}
+						this.storeList[index].select = temp;
+						console.log(this.storeList[index].select);
+					} else {
+						console.log(0)
+					}
+				}
+			}
 		}
 	}
 </script>
@@ -234,7 +258,7 @@
 						}
 					}
 
-					&>.order {
+					.order {
 						margin-top: 32rpx;
 						width: 100%;
 						@include flexX;
@@ -277,14 +301,18 @@
 
 							&>.price {
 								text {
-									&:nth-first-child() {
+
+									&:first-child {
 										@include fontStyle(36rpx, 600, #FF7A00, 50rpx);
 										color: #FF7A00;
+										
+										margin-right: 10rpx;
 									}
 
-									&:nth-last-child() {
+									&:last-child {
 										@include fontStyle(22rpx, 400, #999999, 32rpx);
 										color: #999999;
+										text-decoration: line-through;
 									}
 								}
 							}
