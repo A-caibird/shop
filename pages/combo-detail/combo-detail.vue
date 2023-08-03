@@ -168,7 +168,7 @@
 					<text>
 						2家门店通用
 					</text>
-					<image src="@/static/toRight.png">
+					<image src="@/static/darkRight.png">
 					</image>
 				</view>
 			</view>

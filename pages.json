@@ -3,9 +3,14 @@
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-
-
 		{
+			"path": "pages/Settle-now/Settle-now",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
 			"path": "pages/shopCar/shopCar",
 			"style": {
 				"navigationBarTitleText": "",
@@ -88,7 +93,6 @@
 				"enablePullDownRefresh": false
 			}
 		}
-
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -97,7 +101,9 @@
 		"backgroundColor": "#F8F8F8",
 		"navigationStyle": "custom",
 		"app-plus": { //app平台
-			"bounce": "none" //禁止滚动
+			"bounce": "none", //禁止滚动
+			"titleView": false,
+			"scrollIndicator": "none"
 		}
 
 	},

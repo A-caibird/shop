@@ -34,7 +34,7 @@
 								<text>{{item.storeName}}</text>
 							</view>
 							<view class="icon">
-								<image src="@/static/toRight.png">
+								<image src="@/static/darkRight.png">
 								</image>
 							</view>
 						</view>
@@ -135,7 +135,6 @@
 				</view>
 			</view>
 		</view>
-	</view>
 	</view>
 </template>
 

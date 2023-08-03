@@ -128,7 +128,7 @@
 						<text>
 							详情
 						</text>
-						<image src="/static/store-details/toRight.png">
+						<image src="/static/greyRight.png">
 						</image>
 					</view>
 					<pop v-model:show="show"></pop>
@@ -174,7 +174,7 @@
 					<text>
 						查看更多
 					</text>
-					<image src="/static/store-details/toRight.png">
+					<image src="/static/greyRight.png">
 					</image>
 				</view>
 			</view>
