@@ -116,16 +116,15 @@
 										共减¥10
 									</text>
 								</view>
-								<view class="detail">
+								<view class="detail" @tap="popShow=true">
 									<text>
 										明细
 									</text>
 									<image src="@/static/shopCar/yellowDown.png">
 									</image>
 								</view>
-
+								<pop v-model:show="popShow"></pop>
 							</view>
-
 						</view>
 						<view class="button">
 							<text>
@@ -142,9 +141,11 @@
 
 <script>
 	import leftTag from "@/components/left-tag.vue";
+	import pop from "@/components/shopCar/pop.vue";
 	export default {
 		components: {
-			leftTag
+			leftTag,
+			pop
 		},
 		data() {
 			return {
@@ -160,7 +161,9 @@
 							comboName: "小酥肉"
 						}
 					]
-				}]
+				}],
+				popShow: false,
+
 			}
 		},
 		methods: {
@@ -181,6 +184,11 @@
 						console.log(0)
 					}
 				}
+				this.storeList[0].select.push('大叔小子烤鱼')
+			},
+			close() {
+				this.popShow = false;
+				this.$emit('change', this.display);
 			}
 		}
 	}
@@ -305,7 +313,6 @@
 									&:first-child {
 										@include fontStyle(36rpx, 600, #FF7A00, 50rpx);
 										color: #FF7A00;
-										
 										margin-right: 10rpx;
 									}
 
