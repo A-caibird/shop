@@ -116,7 +116,31 @@
 				</u-radio-group>
 			</view>
 		</view>
-
+		<view class="footer">
+			<view class="left">
+				<view class="up">
+					<text>
+						合计:
+					</text>
+					<text>
+						¥134.9
+					</text>
+				</view>
+				<view class="down">
+					<text>
+						共2件
+					</text>
+					<text>
+						总优惠¥10
+					</text>
+				</view>
+			</view>
+			<view class="right">
+				<text>
+					提交订单
+				</text>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -353,6 +377,64 @@
 
 						.select {}
 					}
+				}
+			}
+		}
+
+
+
+		&>.footer {
+			box-sizing: border-box;
+			width: 100%;
+			background: #FFFFFF;
+			@include flexX;
+			justify-content: space-between;
+			align-items: center;
+			position: fixed;
+			bottom: 0rpx;
+			padding: 12rpx 24rpx;
+			padding-bottom: 40rpx;
+			margin-left:-24rpx;
+	
+			&>.left {
+				.up {
+					@include flexX;
+					gap:10rpx;
+					place-items: center;
+					text {
+						&:first-child {
+							@include fontStyle(24rpx, 400, #333333, 34rpx);
+						}
+
+						&:last-child {
+							@include fontStyle(36rpx, 400, #FF7A00, 44rpx);
+						}
+					}
+				}
+
+				.down {
+					@include flexX;
+					gap:10rpx;
+					text {
+						&:first-child {
+							@include fontStyle(24rpx, 400, #333333, 34rpx);
+						}
+
+						&:last-child {
+							@include fontStyle(24rpx, 400, #FF7A00, 34rpx);
+						}
+					}
+				}
+			}
+
+			&>.right {
+				box-sizing: border-box;
+				border-radius: 42rpx;
+				background: linear-gradient(132deg, #69DB38 0%, #48C368 100%);
+				padding: 20rpx 40rpx;
+
+				text {
+					@include fontStyle(32rpx, 400, #FFFFFF, 44rpx);
 				}
 			}
 		}
