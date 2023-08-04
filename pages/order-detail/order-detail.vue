@@ -609,6 +609,7 @@
 				.title {
 					@include fontStyle(32rpx, 500, #333333, 44rpx);
 					margin-bottom: 32rpx;
+					
 				}
 
 				.order-number {
@@ -618,6 +619,7 @@
 						@include fontStyle(28rpx, 400, #999999, 40rpx);
 
 						&:first-child {
+							display: inline-block;
 							width: 140rpx;
 						}
 
