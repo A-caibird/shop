@@ -3,15 +3,23 @@
 		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+
 		{
-			"path": "pages/order-detail/order-detail-toBeReceived/order-detail-toBeReceived",
+			"path": "pages/order-detail/waiting-for-evaluation/waiting-for-evaluation",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 
 		}, {
-			"path": "pages/order-detail/order-detail-pre-payment/order-detail-pre-payment",
+			"path": "pages/order-detail/toBeReceived/toBeReceived",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/order-detail/pre-payment/pre-payment",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
@@ -97,6 +105,7 @@
 				"enablePullDownRefresh": false
 			}
 		}
+
 
 	],
 	"globalStyle": {

@@ -190,6 +190,41 @@
 							3、堂食外带均可
 						</text>
 					</view>
+					<view class="more">
+						<view class="title" @tap="tapCollapse" v-if="isCollapse==false">
+							<view class="state">
+								<text>
+									{{displayState}}
+								</text>
+							</view>
+							<view class="image-box">
+								<image src="@/static/greyDown.png">
+								</image>
+							</view>
+						</view>
+						<view class="more-content" :class="{active:isCollapse}">
+							<text>
+								4、请在餐前给服务人员出示团购套餐券
+							</text>
+							<text>
+								5、团购用户不可同时享受商家其他优惠
+							</text>
+							<text>
+								6、无需预约，消费高峰期可能需要等位
+							</text>
+						</view>
+						<view class="title" @tap="tapCollapse" v-show="isCollapse==true">
+							<view class="state">
+								<text>
+									{{displayState}}
+								</text>
+							</view>
+							<view class="image-box">
+								<image src="@/static/greyUp.png">
+								</image>
+							</view>
+						</view>
+					</view>
 				</view>
 			</view>
 
@@ -220,7 +255,7 @@
 					<text>
 						2023.02.10
 					</text>
-					<text>
+					<text style="margin-left:20rpx">
 						14:32
 					</text>
 				</view>
@@ -605,38 +640,42 @@
 				@include part;
 				padding: 24rpx;
 				box-sizing: border-box;
-
+			
 				.title {
 					@include fontStyle(32rpx, 500, #333333, 44rpx);
 					margin-bottom: 32rpx;
-
+			
 				}
-
+			
 				.order-number {
-
+			
 					text {
-
-						@include fontStyle(28rpx, 400, #999999, 40rpx);
-
+			
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
+			
 						&:first-child {
 							display: inline-block;
 							width: 140rpx;
+							color:#999999;
 						}
-
+			
 						&:nth-child(3) {
 							float: right;
+							color:#999999;
 						}
+						
 					}
 				}
-
+			
 				&>.item {
 					text {
-
-						@include fontStyle(28rpx, 400, #999999, 40rpx);
-
+			
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
+			
 						&:first-child {
 							display: inline-block;
 							width: 140rpx;
+							color:#999999;
 						}
 					}
 				}
