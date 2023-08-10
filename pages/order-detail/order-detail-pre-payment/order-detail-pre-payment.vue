@@ -609,7 +609,7 @@
 				.title {
 					@include fontStyle(32rpx, 500, #333333, 44rpx);
 					margin-bottom: 32rpx;
-					
+
 				}
 
 				.order-number {
@@ -655,6 +655,7 @@
 			background: #ffffff;
 			justify-content: space-between;
 			align-items: center;
+
 			.left {
 				text {
 					&:first-child {
@@ -675,6 +676,7 @@
 					padding: 20rpx 42rpx;
 					background: #E2E2E2;
 					border-radius: 42rpx;
+
 					text {
 						@include fontStyle(32rpx, 400, #666666, 44rpx);
 					}
@@ -684,6 +686,7 @@
 					padding: 20rpx 42rpx;
 					background: linear-gradient(132deg, #69DB38 0%, #48C368 100%) #F1F2F2;
 					border-radius: 42rpx;
+
 					text {
 						@include fontStyle(32rpx, 400, #ffffff, 44rpx);
 					}
