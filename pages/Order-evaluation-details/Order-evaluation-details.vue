@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar title="订单详情" bgColor="#ffffff">
+		<u-navbar title="订单评价" bgColor="#ffffff">
 			<view class="u-nav-slot" slot="right">
 				<view class="btn">
 					<text>
