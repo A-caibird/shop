@@ -4,6 +4,14 @@
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/order-detail/to-be-used/to-be-used",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},{
 			"path": "pages/order-detail/after-sales-refund/after-sales-refund",
 			"style": {
 				"navigationBarTitleText": "",
@@ -112,7 +120,8 @@
 				"enablePullDownRefresh": false
 			}
 		}
-	],
+	    
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
