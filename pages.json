@@ -4,6 +4,14 @@
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+		    "path" : "pages/Order-evaluation-details/Order-evaluation-details",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},{
 		    "path" : "pages/order-detail/to-be-used/to-be-used",
 		    "style" :                                                                                    
 		    {
@@ -120,7 +128,6 @@
 				"enablePullDownRefresh": false
 			}
 		}
-	    
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
