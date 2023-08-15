@@ -12,13 +12,16 @@
 						</view>
 					</view>
 					<view class="search">
-						<view class="icon">
-							<image src="../../static/indexPage/search.png">
-							</image>
+						<view class="left">
+							<view class="icon">
+								<image src="../../static/indexPage/search.png">
+								</image>
+							</view>
+							<view class="input-box">
+								<input placeholder="搜索我的订单" placeholder-class="placeholder" class="input_">
+							</view>
 						</view>
-						<view class="input-box">
-							<input placeholder="搜索店铺" placeholder-class="placeholder">
-						</view>
+					
 						<view class="btn">
 							<button>
 								搜索
@@ -266,52 +269,51 @@
 
 				.search {
 					display: flex;
-					flex-direction: row;
 					place-items: center;
-					width: 570rpx;
+					justify-content: space-between;
+					width: 640rpx;
 					height: 72rpx;
 					background: #FFFFFF;
 					border-radius: 36rpx;
-					position: relative;
-					margin-left: 80rpx;
-
-					.icon {
-						width: 20rpx;
-						height: 20rpx;
-						position: absolute;
-						left: 20rpx;
-						top: 15rpx;
-
-						image {
-							height: 100%;
+					border: 1rpx solid #35984E;
+					margin-left: 20rpx;
+				
+					.left {
+						display: flex;
+						place-items: center;
+						align-items: center;
+						gap:0 13rpx;
+						.icon {
+							width: 24rpx;
+							height: 24rpx;
+							margin-left:34rpx;
+							margin-bottom: 20rpx;
+							image {
+								height: 100%;
+								width: 100%;
+							}
+						}
+				
+						.input-box {
 							width: 100%;
+				
+							.input_ {
+								@include fontStyle(28rpx, 400, #333333, 34rpx)
+							}
+				
+							.placeholder {
+								font-size: 28rpx;
+								font-family: PingFangSC-Regular, PingFang SC;
+								font-weight: 400;
+								color: #999999;
+							}
 						}
 					}
-
-					.input-box {
-						width: 100%;
-						position: absolute;
-						left: 80rpx;
-
-						input {
-							font-size: 28rpx;
-							font-family: PingFangSC-Medium, PingFang SC;
-							font-weight: 500;
-						}
-					}
-
-					.placeholder {
-						font-size: 28rpx;
-						font-family: PingFangSC-Regular, PingFang SC;
-						font-weight: 400;
-						color: #999999;
-					}
-
+				
 					.btn {
 						line-height: 40rpx;
-						position: absolute;
-						right: 7rpx;
-
+						margin-right: 5rpx;
+				
 						button {
 							width: 118rpx;
 							height: 64rpx;
