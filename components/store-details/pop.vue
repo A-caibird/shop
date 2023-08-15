@@ -46,20 +46,21 @@
 			prop: 'show',
 			event: 'change'
 		},
-		props:{
-			show:Boolean,
+		props: {
+			show: Boolean,
 		},
 		data() {
-			return{
-				display:this.show
+			return {
+				display: false
 			}
 		},
 		methods: {
 			close() {
-				this.display=false;
+				this.display = false;
 				this.$emit('change', this.display);
 			}
-		}
+		},
+		created() {},
 	}
 </script>
 
@@ -67,7 +68,7 @@
 	.container {
 		.pop {
 			height: 800rpx;
-			overflow-y:auto; 
+			overflow-y: auto;
 			@include flexY();
 			place-items: center;
 			padding: 20rpx 20rpx;
@@ -77,7 +78,8 @@
 			.image-box {
 				position: absolute;
 				right: 22rpx;
-				top:25rpx;
+				top: 25rpx;
+
 				image {
 					width: 32rpx;
 					height: 32rpx;
@@ -122,6 +124,7 @@
 					justify-content: space-between;
 					place-items: center;
 					margin-bottom: 20rpx;
+
 					&>.pop-left {
 						@include flexY();
 						gap: 40rpx;

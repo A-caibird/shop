@@ -135,16 +135,20 @@
 				</view>
 			</view>
 		</view>
+		<footer-bottom :cur="2">
+		</footer-bottom>
 	</view>
 </template>
 
 <script>
+	import footerBottom from "@/components/indexPage/footer.vue"
 	import leftTag from "@/components/left-tag.vue";
 	import pop from "@/components/shopCar/pop.vue";
 	export default {
 		components: {
 			leftTag,
-			pop
+			pop,
+			footerBottom
 		},
 		data() {
 			return {
@@ -194,6 +198,11 @@
 </script>
 
 <style lang="scss" scoped>
+	::v-deep .uicon-true {
+		visibility: hidden;
+	}
+	
+	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.container {
 		@include full-screen-color;
 		background: #f3f4f5;

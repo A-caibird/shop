@@ -30,12 +30,12 @@
 		</u-navbar>
 		<view class="mid-box">
 			<view class="feature-box">
-				<swiper :indicator-dots="true" class="swiper" indicator-color="#D8D8D8"
+				<swiper :indicator-dots="true" class="swiper-1" indicator-color="#D8D8D8"
 					indicator-active-color="#48C368">
 					<swiper-item>
 						<u-grid :border="true" :col="5">
 							<u-grid-item v-for="(item, index) in swiperList1" :index="index" :key="index"
-								class="grid-item">
+								class="grid-item-1" @tap="goTo(item.text)">
 								<image :src="item.imagePath"></image>
 								<text class="grid-text">{{ item.text}}</text>
 							</u-grid-item>
@@ -44,7 +44,7 @@
 					<swiper-item>
 						<u-grid :border="true" :col="5">
 							<u-grid-item v-for="(item, index) in swiperList2" :index="index" :key="index"
-								class="grid-item">
+								class="grid-item" @tap="goTo(item.text)">
 								<image :src="item.imagePath"></image>
 								<text class="grid-text">{{ item.text}}</text>
 							</u-grid-item>
@@ -59,7 +59,7 @@
 					:location="item.location"></function-option>
 			</view>
 		</view>
-		<footer-bottom>
+		<footer-bottom :cur="0">
 		</footer-bottom>
 	</view>
 </template>
@@ -108,7 +108,7 @@
 				],
 				swiperList2: [{
 					imagePath: "/static/indexPage/crowdfunding.png",
-					text: '美食'
+					text: '众筹'
 				}, ],
 				foodList: [{
 						imagePath: '/static/indexPage/footPhoto1.png',
@@ -175,6 +175,20 @@
 			right() {
 				console.log('right');
 			},
+			goTo(str) {
+				console.log(str);
+				if (str == '美食') {
+					uni.navigateTo({
+						url: '/pages/foodList/foodList'
+					})
+
+				} else if (str == '众筹') {
+					uni.navigateTo({
+						url: '/pages/crowdfunding-home/crowdfunding-home'
+					})
+
+				}
+			}
 		},
 		mounted() {}
 	}
@@ -185,6 +199,10 @@
 		height: auto;
 		display: flex;
 		flex-direction: column;
+
+		::v-deep .uicon-true {
+			visibility: hidden;
+		}
 
 		&::before {
 			//页面上半部分的背景颜色
@@ -234,13 +252,14 @@
 					.icon {
 						width: 20rpx;
 						height: 20rpx;
-						position: absolute;
-						left: 60rpx;
-						top: 0rpx;
+						// position: absolute;
+						// left: 60rpx;
+						// top: 0rpx;
 
 						image {
 							height: 100%;
 							width: 100%;
+							display: block;
 						}
 					}
 				}
@@ -320,14 +339,14 @@
 			.feature-box {
 				margin-top: 100rpx;
 
-				.swiper {
+				.swiper-1 {
 					width: 702rpx;
 					height: 376rpx;
 					background: #FFFFFF;
 					border-radius: 16rpx;
 					border: 1px solid #FFFFFF;
 
-					.grid-item {
+					::v-deep .u-grid-item {
 						height: 160rpx;
 						width: 140rpx;
 
@@ -344,6 +363,15 @@
 							color: #333333;
 							line-height: 34rpx;
 						}
+					}
+
+					.grid-item-1 {
+						height: 160rpx;
+						width: 140rpx;
+
+
+
+
 					}
 				}
 			}

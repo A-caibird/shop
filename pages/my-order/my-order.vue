@@ -3,7 +3,7 @@
 		<u-navbar bgColor="#ffffff" leftIcon="" height="124">
 			<view class="u-nav-slot" slot="center">
 				<view class="back-search" v-if="true">
-					<view class="back">
+					<view class="back" @tap="back">
 						<view class="icon">
 							<image src="@/static/back.png"></image>
 						</view>
@@ -24,21 +24,22 @@
 					</view>
 				</view>
 				<view class="scroll-list">
-					<u-scroll-list :indicator="indicator" @right="right" @left="left">
-						<view class="select">
-							<view class="select-item " :class="{active:item.selected}" v-for="(item,index) of list"
-								:key="index" indicatorBarWidth="60" @tap="select(index)">
-								<text>
-									{{item.title}}
-								</text>
-							</view>
+					<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="0" show-scrollbar="false">
+
+						<view class="select-item " :class="{active:item.selected}" v-for="(item,index) of list"
+							:key="index" indicatorBarWidth="60" @tap="select(index)">
+							<text>
+								{{item.title}}
+							</text>
 						</view>
-					</u-scroll-list>
+
+					</scroll-view>
 				</view>
+
 			</view>
 		</u-navbar>
 		<view class="box">
-			<view class="item" v-for="item of 10" :key="item">
+			<view class="item" v-for="(item,index) of 10" :key="item" @tap="goTo(index)">
 				<view class="store-state">
 					<view class="name">
 						<image src="@/static/avatar.png">
@@ -154,12 +155,59 @@
 			},
 			right() {
 				console.log('right');
+			},
+			back() {
+				uni.navigateBack();
+			},
+			goTo(index) {
+				switch (index) {
+					case 0: {
+						uni.navigateTo({
+							url: '/pages/order-detail/to-be-used/to-be-used'
+						})
+						break;
+					}
+					case 1: {
+						uni.navigateTo({
+							url: '/pages/order-detail/after-sales-refund/after-sales-refund'
+						})
+						break;
+					}
+					case 2: {
+						uni.navigateTo({
+							url: '/pages/order-detail/pre-payment/pre-payment'
+						})
+						break;
+					}
+					case 3: {
+						uni.navigateTo({
+							url: '/pages/order-detail/toBeReceived/toBeReceived'
+						})
+						break;
+					}
+					case 4: {
+						uni.navigateTo({
+							url: '/pages/order-detail/waiting-for-evaluation/waiting-for-evaluation'
+						})
+						break;
+					}
+				}
+			}
+
+			,
+			scroll() {
+				console.log('scroll')
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	::v-deep .uicon-true {
+		visibility: hidden;
+	}
+
+	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.container {
 		@include full-screen-color;
 		overflow-y: auto;
@@ -179,7 +227,7 @@
 					.icon {
 						width: 40rpx;
 						height: 40rpx;
-
+						z-index:200000;
 						image {
 							height: 100%;
 							width: 100%;
@@ -257,12 +305,21 @@
 				margin-top: 20rpx;
 				margin-bottom: -40rpx;
 
-				.select {
+				.scroll-view_H {
+					white-space: nowrap;
+					width: 100%;
 					@include flexX;
 					justify-content: center;
-
+						
+					::-webkit-scrollbar{
+						display: none;
+						width:0;
+						height:0;
+						color:transparent;
+						background-color: transparent;
+					}
 					.select-item {
-
+						display: inline-block;
 						margin: 20rpx 20rpx;
 						position: relative;
 
@@ -298,7 +355,7 @@
 
 		.box {
 			@include flexY;
-			gap:20rpx 0;
+			gap: 20rpx 0;
 			width: 100%;
 			padding: 24rpx;
 			position: relative;

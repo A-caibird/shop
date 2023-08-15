@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar bgColor="#f3f4f5" height="54" title="提交订单">
+		<u-navbar bgColor="#f3f4f5" height="54" title="提交订单" :autoBack="true">
 		</u-navbar>
 		<view class="box">
 			<view class="list">
