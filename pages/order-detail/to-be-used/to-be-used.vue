@@ -1,10 +1,10 @@
 <template>
 	<view class="container">
-		<u-navbar title="订单详情" bgColor="#f3f4f5">
+		<u-navbar title="订单详情" bgColor="#f3f4f5" :autoBack="true">
 		</u-navbar>
 		<view class="content-box">
 			<view class="state-info">
-				<image src="@/static/order-detail/after-sales-refund.png">
+				<image src="@/static/order-detail/use.png">
 				</image>
 				<text>
 					待到店使用
@@ -245,7 +245,7 @@
 						</text>
 					</view>
 					<view class="more">
-						<view class="title" @tap="tapCollapse" v-if="isCollapse==false">
+						<view class="title" @tap="tapCollapse" :class={inactive:isCollapse}  v-if="isCollapse==false">
 							<view class="state">
 								<text>
 									{{displayState}}
@@ -267,7 +267,7 @@
 								6、无需预约，消费高峰期可能需要等位
 							</text>
 						</view>
-						<view class="title" @tap="tapCollapse" v-show="isCollapse==true">
+						<view class="title" @tap="tapCollapse" v-if="isCollapse">
 							<view class="state">
 								<text>
 									{{displayState}}
@@ -683,9 +683,8 @@
 				}
 
 				.foot {
-
 					align-self: center;
-
+					@include fontStyle(28rpx,400,#333333,40rpx);
 					image {
 						width: 24rpx;
 						height: 24rpx;
@@ -859,6 +858,11 @@
 							&:first-of-type {
 								margin-top: 20rpx;
 								margin-bottom: 0rpx;
+							}
+							&.inactive{
+								display: none;
+								
+								// 小程序端使用,小程序端的bug
 							}
 						}
 

@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="shop-card">
+		<view class="shop-card" @click="goTo">
 			<view class="image-box">
 				<image :src="imagePath">
 				</image>
@@ -32,6 +32,14 @@
 		data() {
 			return {
 
+			}
+		},
+		methods:{
+			goTo(){
+				console.log('succesful')
+				uni.navigateTo({
+					url:"/pages/store-details/store-details"
+				})
 			}
 		}
 	}

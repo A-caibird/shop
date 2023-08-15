@@ -3,7 +3,7 @@
 		<u-navbar bgColor="#ffffff" leftIcon="" height="124" :fixed="true">
 			<view class="u-nav-slot" slot="center">
 				<view class="nav-search">
-					<view class="box">
+					<view class="box" @tap="back">
 						<image src="../../static/back.png">
 						</image>
 					</view>
@@ -85,12 +85,20 @@
 			right() {
 				console.log('right');
 			},
+			back(){
+				uni.navigateBack();
+			}
 
 		},
 		mounted() {}
 	}
 </script>
 <style lang="scss" scoped>
+	::v-deep .uicon-true {
+		visibility: hidden;
+	}
+	
+	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.container {
 		@include __hw100();
 		background: #F3F4F5;
@@ -106,7 +114,10 @@
 				.box {
 					width: 40rpx;
 					height: 40rpx;
-
+					// 微信小程序点击事件失效,可能是😏元素挡住了
+					// #ifdef MP-WEIXIN
+					z-index: 200; 
+					// #endif 
 					image {
 						@include __hw100;
 					}

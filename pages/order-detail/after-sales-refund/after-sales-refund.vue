@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar title="订单详情" bgColor="#f3f4f5">
+		<u-navbar title="订单详情" bgColor="#f3f4f5" :autoBack="true">
 		</u-navbar>
 		<view class="content-box">
 			<view class="state-info">
@@ -192,7 +192,7 @@
 						</text>
 					</view>
 					<view class="more">
-						<view class="title" @tap="tapCollapse" v-if="isCollapse==false">
+						<view class="title " :class={inactive:isCollapse} @tap="tapCollapse" v-if="isCollapse==false">
 							<view class="state">
 								<text>
 									{{displayState}}
@@ -214,7 +214,7 @@
 								6、无需预约，消费高峰期可能需要等位
 							</text>
 						</view>
-						<view class="title" @tap="tapCollapse" v-show="isCollapse==true">
+						<view class="title" @tap="tapCollapse" v-if="isCollapse">
 							<view class="state">
 								<text>
 									{{displayState}}
@@ -260,7 +260,7 @@
 						14:32
 					</text>
 				</view>
-				<view class="item" >
+				<view class="item">
 					<text>
 						付款时间：
 					</text>
@@ -347,6 +347,10 @@
 </script>
 
 <style lang="scss" scoped>
+	::deep .data-v-1865216e {
+		visibility: hidden;
+	}
+
 	.container {
 		@include full-screen-color;
 		overflow-y: auto;
@@ -720,6 +724,11 @@
 								margin-top: 20rpx;
 								margin-bottom: 0rpx;
 							}
+							&.inactive{
+								display: none;
+								
+								// 小程序端使用,小程序端的bug
+							}
 						}
 
 						.more-content {
@@ -804,6 +813,7 @@
 			.button-group {
 				@include flexX;
 				gap: 0 20rpx;
+
 				.canlce {
 					padding: 20rpx 42rpx;
 					background: #ffffff;
@@ -814,6 +824,7 @@
 						@include fontStyle(32rpx, 400, #48C368, 44rpx);
 					}
 				}
+
 				.pay {
 					padding: 20rpx 42rpx;
 					background: linear-gradient(132deg, #69DB38 0%, #48C368 100%) #F1F2F2;

@@ -2,7 +2,7 @@
 	<view class="container">
 		<view class="navbar">
 			<view class="u-nav-slot-left" slot="left">
-				<view class="image-box">
+				<view class="image-box" @tap="back">
 					<image src="/static/store-details/back2.png">
 					</image>
 				</view>
@@ -40,13 +40,10 @@
 					</text>
 				</view>
 				<view class="storePhoto">
-					<swiper class="swiper">
-						<swiper-item class="swiper-item">
-							<image src="/static/store-details/food1.png" v-for="(item,index) of 2" :key="index">
-							</image>
-
-						</swiper-item>
-					</swiper>
+					<scroll-view class="scroll-list-photo" scroll-x="true" @scroll="scroll" scroll-left="120">
+						<image src="/static/store-details/food1.png" v-for="(item,index) of 20" :key="index">
+						</image>
+					</scroll-view>
 					<view class="count">
 						<image src="/static/store-details/photoCollet.png">
 						</image>
@@ -124,14 +121,53 @@
 							领取优惠券后下单更优惠【仅本店可用】
 						</text>
 					</view>
-					<view class="detail" @tap="show=true">
+					<view class="detail" @tap="showCoupon">
 						<text>
 							详情
 						</text>
 						<image src="/static/greyRight.png">
 						</image>
 					</view>
-					<pop v-model:show="show"></pop>
+					<view class="action">
+						<u-action-sheet :show="show" round="16rpx">
+							<view class="pop">
+								<view class="image-box" @tap="close">
+									<image src="/static/close.png">
+
+									</image>
+								</view>
+								<view class="title">
+									<text>领取优惠券</text>
+								</view>
+								<view class="coupon-list">
+									<view class="item" v-for="item of 3" :key="item">
+										<view class="pop-left">
+											<text>
+												烤鱼优惠券
+											</text>
+											<text>
+												2023.02.15到期
+											</text>
+										</view>
+										<view class="pop-right">
+											<text>
+												¥10
+											</text>
+											<text>
+												满100可用
+											</text>
+											<view class="button">
+												<text>
+													领取
+												</text>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</u-action-sheet>
+					</view>
+
 				</view>
 			</view>
 
@@ -141,7 +177,7 @@
 				</text>
 			</view>
 			<view class="combo-list">
-				<view class="combo-list-item" v-for="item of 3" :key="item">
+				<view class="combo-list-item" v-for="item of 3" :key="item" @tap="goTo('combon')">
 					<view class="image-box">
 						<image src="/static/store-details/suRou.png">
 						</image>
@@ -255,7 +291,6 @@
 							已消费：2-3人超值烤鱼套餐
 						</text>
 					</view>
-
 				</view>
 			</view>
 		</view>
@@ -265,7 +300,7 @@
 <script>
 	import pop from '../../components/store-details/pop.vue'
 	export default {
-		components:{
+		components: {
 			pop
 		},
 		data() {
@@ -289,11 +324,34 @@
 						loading: true
 					}
 				],
-				show:false
+				show: false,
 			}
 		},
 		methods: {
 
+			back() {
+				uni.navigateBack();
+			},
+			scroll() {
+				console.log('scroll');
+			},
+			showCoupon() {
+				console.log(this.show);
+				this.show = true;
+			}
+
+			,
+			close() {
+				this.show = false;
+			},
+			goTo(str){
+					
+				if('combon'==str){
+					uni.navigateTo({
+						url:'/pages/combo-detail/combo-detail'
+					})
+				}
+			}
 		}
 	}
 </script>
@@ -311,7 +369,7 @@
 		overflow-y: auto;
 		@include flexY();
 
-		
+
 		.navbar {
 			width: 100%;
 			$Ih: 60rpx;
@@ -328,7 +386,7 @@
 				&>.image-box {
 					width: $Iw;
 					height: $Ih;
-
+					index:200000;
 					image {
 						@include __hw100();
 					}
@@ -407,16 +465,15 @@
 					margin-bottom: 10rpx;
 					position: relative;
 
-					.swiper {
+					.scroll-list-photo {
 						@include __hw100;
+						white-space: nowrap;
 
-						.swiper-item {
-
-							image {
-								height: 160rpx;
-								width: 240rpx;
-								margin-right: 20rpx;
-							}
+						image {
+							height: 160rpx;
+							width: 240rpx;
+							margin-right: 20rpx;
+							display: inline-block;
 						}
 					}
 
@@ -574,6 +631,7 @@
 					.detail {
 						position: absolute;
 						right: 0rpx;
+						z-index: 2000000;
 
 						text {
 							font-size: 24rpx;
@@ -586,6 +644,129 @@
 						image {
 							width: 22rpx;
 							height: 22rpx;
+						}
+					}
+
+					.action {
+						.pop {
+							height: 800rpx;
+							overflow-y: auto;
+							@include flexY();
+							place-items: center;
+							padding: 20rpx 20rpx;
+							box-sizing: border-box;
+							position: relative;
+
+							.image-box {
+								position: absolute;
+								right: 22rpx;
+								top: 25rpx;
+
+								image {
+									width: 32rpx;
+									height: 32rpx;
+								}
+							}
+
+							@mixin font1 {
+								font-size: 32rpx;
+								font-family: PingFangSC-Medium, PingFang SC;
+								font-weight: 500;
+								color: #333333;
+								line-height: 44rpx;
+							}
+
+							@mixin font2 {
+								font-size: 24rpx;
+								font-family: PingFangSC-Regular, PingFang SC;
+								font-weight: 400;
+								color: #666666;
+								line-height: 34rpx;
+							}
+
+							&>.title {
+								text {
+									@include font1;
+								}
+							}
+
+							&>.coupon-list {
+								width: 100%;
+								padding: 20rpx 0rpx;
+								box-sizing: border-box;
+
+								&>.item {
+									width: 100%;
+									box-sizing: border-box;
+									background: #E9F9EE;
+									border-radius: 16rpx;
+									padding: 30rpx 40rpx;
+									gap: 200rpx;
+									@include flexX();
+									justify-content: space-between;
+									place-items: center;
+									margin-bottom: 20rpx;
+
+									&>.pop-left {
+										@include flexY();
+										gap: 40rpx;
+
+										text {
+											&:nth-child(1) {
+												@include font1;
+											}
+
+											&:nth-child(2) {
+												@include font2;
+											}
+										}
+									}
+
+									&>.pop-right {
+
+										@include flexY();
+										gap: 10rpx;
+
+										&>text {
+											&:nth-child(1) {
+												font-size: 52rpx;
+												font-family: PingFangSC-Medium, PingFang SC;
+												font-weight: 500;
+												color: #48C368;
+												line-height: 74rpx;
+
+											}
+
+											&:nth-child(2) {
+												font-size: 24rpx;
+												font-family: PingFangSC-Regular, PingFang SC;
+												font-weight: 400;
+												color: #666666;
+												line-height: 34rpx;
+
+											}
+
+										}
+
+										&>.button {
+											display: inline;
+											padding: 10rpx 20rpx;
+											background: linear-gradient(132deg, #69DB38 0%, #48C368 100%);
+											border-radius: 36rpx;
+
+											&>text {
+												&:nth-child(1) {
+													font-size: 24rpx;
+													font-family: PingFangSC-Medium, PingFang SC;
+													font-weight: 500;
+													color: #FFFFFF;
+													line-height: 34rpx;
+												}
+											}
+										}
+									}
+								}
+							}
 						}
 					}
 				}
@@ -616,7 +797,7 @@
 					position: relative;
 					margin-bottom: 20rpx;
 
-					&:nth-last-child() {
+					&:last-child {
 						margin-bottom: 0rpx;
 					}
 
@@ -919,8 +1100,6 @@
 							line-height: 34rpx;
 						}
 					}
-
-
 				}
 			}
 		}

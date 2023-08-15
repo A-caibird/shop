@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<view class="list-area">
-			<view class="item" v-for="item in 4" :key="item">
+			<view class="item" v-for="item in 4" :key="item" @tap="goTo('combo-detail')">
 				<view class="left">
 					<view class="image-box">
 						<image src="@/static/foodList/foodItem1.png">
@@ -99,6 +99,15 @@
 				rateValue: 0,
 			}
 		},
+		methods:{
+			goTo(str){
+				if(str=='combo-detail'){
+					uni.navigateTo({
+						url:'/pages/store-details/store-details'
+					})
+				}
+			}
+		}
 	}
 </script>
 

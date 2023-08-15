@@ -2,7 +2,7 @@
 	<view class="container">
 		<u-navbar leftIcon="" bgColor="#f3f4f5" height="54">
 			<view class="u-nav-slot" slot="center">
-				<view class="left">
+				<view class="left" @tap="back">
 					<image src="../../static/back.png">
 
 					</image>
@@ -211,18 +211,18 @@
 		<view class="button-group">
 			<view class="shopCar">
 				<image src="@/static/toPage/shopCar.png">
-				
+
 				</image>
 				<text>
 					购物车
 				</text>
 			</view>
-			
+
 			<view class="button">
 				<view class="b1">
 					<text>加入购物车</text>
 				</view>
-				<view class="b2">
+				<view class="b2" @tap="goTo('settle')">
 					<text>
 						立即抢购
 					</text>
@@ -246,7 +246,20 @@
 			}
 		},
 		methods: {
-
+			back() {
+				console.log("fdasfasfasdf")
+				uni.navigateBack({
+					delta: 1
+				});
+			},
+			goTo(str) {
+				if (str == 'settle')
+				{
+					uni.navigateTo({
+						url:'/pages/Settle-now/Settle-now'
+					})
+				}
+			}
 		},
 		computed: {
 			ok: function() {
@@ -257,7 +270,13 @@
 </script>
 
 <style scoped lang="scss">
+	::v-deep .uicon-true {
+		visibility: hidden;
+	}
+
+	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.u-nav-slot {
+		position: relative;
 		width: 100%;
 		@include flexX;
 		justify-content: space-between;
@@ -270,9 +289,16 @@
 		}
 
 		.left {
+			width: 40rpx;
+			height: 40rpx;
+
 			image {
 				width: 40rpx;
 				height: 40rpx;
+				position: absolute;
+				left: 32rpx;
+				top: 0;
+				z-index: 999;
 			}
 		}
 
@@ -300,11 +326,15 @@
 		padding-bottom: 40rpx;
 		overflow-y: auto;
 		box-sizing: border-box;
+
 		.classificate {
 			position: fixed;
 			right: 0rpx;
 			left: 0rpx;
 			top: 140rpx;
+			//#ifdef MP-WEIXIN
+			top: 156rpx;
+			//#endif
 			width: 100%;
 			padding: 0rpx 36rpx;
 			box-sizing: border-box;
@@ -574,7 +604,7 @@
 
 
 		.button-group {
-			width:100%;
+			width: 100%;
 			position: fixed;
 			bottom: 0;
 			@include flexX;
@@ -582,26 +612,29 @@
 			place-items: center;
 			background: #FFFFFF;
 			padding: 30rpx 24rpx;
-			margin:0rpx -32rpx;
+			margin: 0rpx -32rpx;
 			box-sizing: border-box;
-			
-			.shopCar{
+
+			.shopCar {
 				@include flexY;
 				place-items: center;
-				margin-left:30rpx;
+				margin-left: 30rpx;
+
 				image {
 					width: 48rpx;
 					height: 48rpx;
 					// margin-left:30rpx;
 				}
-				text{
+
+				text {
 					@include fontStyle(32rpx, 400, #333333, 44rpx);
 				}
 			}
-			
+
 
 			&>.button {
-				@include flexX;	
+				@include flexX;
+
 				.b1 {
 					border: 2rpx solid #48C368;
 					background: #ffffff;
@@ -618,6 +651,7 @@
 					background: #48C368;
 					padding: 18rpx 50rpx;
 					border-radius: 0rpx 200rpx 200rpx 0rpx;
+
 					text {
 						@include fontStyle(32rpx, 400, #fffff, 44rpx);
 					}

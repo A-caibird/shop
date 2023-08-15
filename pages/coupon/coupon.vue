@@ -2,7 +2,7 @@
 	<view class="container">
 		<u-navbar height="98" leftIcon="">
 			<view class="u-nav-slot" slot="center">
-				<view class="back">
+				<view class="back" @tap="back">
 					<image src="@/static/back.png">
 					</image>
 				</view>
@@ -67,12 +67,20 @@
 				this.selected = this.selected.map(function(item, index) {
 					return index == num;
 				});
-			}
+			},
+			back() {
+				uni.navigateBack();
+			},
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	::v-deep .uicon-true {
+		visibility: hidden;
+	}
+	
+	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.container {
 		@include full-screen-color;
 		background: #f3f4f5;

@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar title="订单详情" bgColor="#f3f4f5">
+		<u-navbar title="订单详情" bgColor="#f3f4f5" :autoBack="true">
 		</u-navbar>
 		<view class="content-box">
 			<view class="state-info">
@@ -191,7 +191,7 @@
 						</text>
 					</view>
 					<view class="more">
-						<view class="title" @tap="tapCollapse" v-if="isCollapse==false">
+						<view class="title" @tap="tapCollapse" :class={inactive:isCollapse} v-if="isCollapse==false">
 							<view class="state">
 								<text>
 									{{displayState}}
@@ -213,7 +213,7 @@
 								6、无需预约，消费高峰期可能需要等位
 							</text>
 						</view>
-						<view class="title" @tap="tapCollapse" v-show="isCollapse==true">
+						<view class="title" @tap="tapCollapse" v-if="isCollapse">
 							<view class="state">
 								<text>
 									{{displayState}}
@@ -317,8 +317,21 @@
 	export default {
 		data() {
 			return {
-
+				isCollapse: false,
 			};
+		},
+		computed: {
+			displayState() {
+				if (this.isCollapse)
+					return '收起';
+				else
+					return '更多';
+			}
+		},
+		methods: {
+			tapCollapse() {
+				this.isCollapse = !this.isCollapse;
+			}
 		}
 	}
 </script>
@@ -630,6 +643,67 @@
 
 						text {
 							@include fontStyle(28rpx, 400, #333333, 40rpx);
+						}
+					}
+					.more {
+						@include flexY;
+					
+						.title {
+							@include flexX;
+							place-items: center;
+							align-self: center;
+							justify-content: center;
+							position: relative;
+					
+							.state {
+								text {
+									@include fontStyle(24rpx, 400, #666666, 34rpx);
+								}
+							}
+					
+							.image-box {
+								width: 22rpx;
+								height: 22rpx;
+					
+								image {
+									width: 100%;
+									height: 100%;
+								}
+					
+								position: relative;
+								bottom:12rpx;
+							}
+					
+							&:last-of-type {
+								margin-top: 20rpx;
+								margin-bottom: 0rpx;
+							}
+					
+							&:first-of-type {
+								margin-top: 20rpx;
+								margin-bottom: 0rpx;
+							}
+							&.inactive{
+								display: none;
+								
+								// 小程序端使用,小程序端的bug
+							}
+						}
+					
+						.more-content {
+							max-height: 0;
+							overflow: hidden;
+							// transition: all 0.000025s ease; //添加下拉过渡动画
+					
+							text {
+								display: block;
+								white-space: pre-wrap;
+							}
+					
+							&.active {
+								max-height: 300rpx;
+								overflow: auto;
+							}
 						}
 					}
 				}
