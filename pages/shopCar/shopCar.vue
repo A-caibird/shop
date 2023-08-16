@@ -123,7 +123,64 @@
 									<image src="@/static/shopCar/yellowDown.png">
 									</image>
 								</view>
-								<pop v-model:show="popShow"></pop>
+								<u-action-sheet :show="popShow" round="16rpx">
+									<view class="popWindows">
+										<view class="image-box" @tap="close">
+											<image src="/static/close.png">
+								
+											</image>
+										</view>
+										<view class="title">
+											<text>
+												金额明细
+											</text>
+											<text>
+												实际优惠金额请以下单页面为准
+											</text>
+										</view>
+										<view class="info">
+											<view class="item">
+												<text>
+													商品总价
+												</text>
+												<text>
+													¥144.9
+												</text>
+											</view>
+											<view class="item">
+												<text>
+													优惠券立减
+												</text>
+												<text>
+													¥10
+												</text>
+											</view>
+										</view>
+								
+										<view class="divi">
+								
+										</view>
+										<view class="all1">
+											<view class="item1">
+												<text>
+													共优惠
+												</text>
+												<text>
+													- ¥10
+												</text>
+											</view>
+											<view class="item1">
+												<text>
+													合计
+												</text>
+												<text>
+													¥134.9
+												</text>
+											</view>
+										</view>
+									</view>
+								
+								</u-action-sheet>
 							</view>
 						</view>
 						<view class="button">
@@ -189,9 +246,13 @@
 				}
 				this.storeList[0].select.push('大叔小子烤鱼')
 			},
+			// close() {
+			// 	this.popShow = false;
+			// 	this.$emit('change', this.display);
+			// }
 			close() {
 				this.popShow = false;
-				this.$emit('change', this.display);
+				this.$emit('change', this.popShow);
 			}
 		}
 	}
@@ -201,7 +262,7 @@
 	::v-deep .uicon-true {
 		visibility: hidden;
 	}
-	
+
 	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.container {
 		@include full-screen-color;
@@ -377,22 +438,20 @@
 						place-items: center;
 						gap: 10rpx;
 
-						.select-info {
-							&>.selecct {
-								text {
-									&:nth-child(1) {
+						&>.select-info {
+							&>.select {
+								text{
+									
+									&:nth-of-type(1) {
 										@include fontStyle(24rpx, 400, #666666, 34rpx);
-										color: #666666;
 									}
-
-									&:nth-child(2) {
-										@include fontStyle(24rpx, 500, #333333, 34rpx);
-										color: #666666;
+									
+									&:nth-of-type(2) {
+										@include fontStyle(24rpx, 400, #666666, 34rpx);
 									}
-
-									&:nth-child(3) {
-										@include fontStyle(36rpx, 400, #FF7A00, 34rpx);
-										color: #FF7A00;
+									
+									&:nth-of-type(3) {
+										@include fontStyle(36rpx, 500, #FF7A00, 56rpx);
 									}
 								}
 							}
@@ -400,7 +459,7 @@
 							&>.favorable {
 								@include flexX;
 								place-items: center;
-
+								align-items: center;
 								&>.reduce {
 									text {
 										@include fontStyle(24rpx, 400, #FF7A00, 34rpx);
@@ -414,10 +473,101 @@
 									place-items: center;
 									@include fontStyle(24rpx, 400, #FF7A00, 34rpx);
 									color: #FF7A00;
-
+									// position: absolute;
+									// left:200rpx;
+									// z-index: 1000000;
 									image {
 										width: 22rpx;
 										height: 22rpx;
+									}
+								}
+								.popWindows {
+									height: 560rpx;
+									overflow-y: auto;
+									@include flexY();
+									place-items: center;
+									padding: 20rpx 20rpx;
+									box-sizing: border-box;
+									position: relative;
+								
+									.image-box {
+										position: absolute;
+										right: 22rpx;
+										top: 25rpx;
+								
+										image {
+											width: 32rpx;
+											height: 32rpx;
+										}
+									}
+								
+									&>.title {
+										text {
+											display: block;
+								
+											&:first-child {
+												@include fontStyle(32rpx, 500, #333333, 44rpx);
+												color: #333333;
+											}
+								
+											&:last-child {
+												@include fontStyle(24rpx, 400, #BBBBBB, 34rpx);
+												color: #BBBBBB;
+											}
+										}
+									}
+								
+									&>.info {
+										width: 100%;
+										margin-top: 46rpx;
+										@include flexY;
+										gap: 20rpx;
+								
+										&>.item {
+											@include flexX;
+											justify-content: space-between;
+								
+											text {
+												&:nth-child(1) {
+													@include fontStyle(28rpx, 400, #666666, 44rpx);
+													color: #666666;
+												}
+								
+												&:nth-child(2) {
+													@include fontStyle(24rpx, 400, #333333, 34rpx);
+													color: #333333;
+												}
+											}
+										}
+									}
+								
+									&>.divi {
+										width: 100%;
+										height: 1rpx;
+										background: #EBEBEB;
+										margin: 32rpx 0;
+									}
+								
+									&>.all1 {
+										width: 100%;
+										@include flexY;
+										gap: 20rpx 0;
+										&>.item1 {
+											@include flexX;
+											justify-content: space-between;
+								
+											text {
+												&:first-child {
+													@include fontStyle(28rpx, 500, #333333, 44rpx);
+													color: #333333;
+												}
+								
+												&:last-child {
+													@include fontStyle(28rpx, 500, #FF7A00, 34rpx);
+													color: #FF7A00;
+												}
+											}
+										}
 									}
 								}
 							}

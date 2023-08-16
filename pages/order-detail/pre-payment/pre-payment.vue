@@ -75,7 +75,7 @@
 				<view class="divi">
 
 				</view>
-				<view class="foot">
+				<view class="foot" @tap="goTo('sub-store')">
 					<text>
 						更多适用门店
 					</text>
@@ -331,6 +331,13 @@
 		methods: {
 			tapCollapse() {
 				this.isCollapse = !this.isCollapse;
+			},
+			goTo(str) {
+				if (str == 'sub-store') {
+					uni.navigateTo({
+						url: '/pages/sub-store-list/sub-store-list'
+					})
+				}
 			}
 		}
 	}
@@ -506,9 +513,10 @@
 				}
 
 				.foot {
-
 					align-self: center;
-
+					text{
+						@include fontStyle(28rpx,400,#333333,40rpx);
+					}
 					image {
 						width: 24rpx;
 						height: 24rpx;
@@ -698,6 +706,7 @@
 							text {
 								display: block;
 								white-space: pre-wrap;
+								@include fontStyle(28rpx, 400, #333333, 40rpx);
 							}
 					
 							&.active {

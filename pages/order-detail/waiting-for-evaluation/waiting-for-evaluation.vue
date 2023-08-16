@@ -7,8 +7,8 @@
 				<image src="@/static/order-detail/comment.png">
 				</image>
 				<text>
-					
-					待评价  
+
+					待评价
 				</text>
 			</view>
 			<view class="coupon-code">
@@ -91,7 +91,7 @@
 				<view class="divi">
 
 				</view>
-				<view class="foot">
+				<view class="foot" @tap="goTo('sub-store')">
 					<text>
 						更多适用门店
 					</text>
@@ -208,7 +208,7 @@
 						</text>
 					</view>
 					<view class="more">
-						<view class="title" @tap="tapCollapse" :class={inactive:isCollapse}  v-if="isCollapse==false">
+						<view class="title" @tap="tapCollapse" :class={inactive:isCollapse} v-if="isCollapse==false">
 							<view class="state">
 								<text>
 									{{displayState}}
@@ -276,7 +276,7 @@
 						14:32
 					</text>
 				</view>
-				<view class="item" >
+				<view class="item">
 					<text>
 						付款时间：
 					</text>
@@ -362,6 +362,13 @@
 		methods: {
 			tapCollapse() {
 				this.isCollapse = !this.isCollapse;
+			},
+			goTo(str) {
+				if (str == 'sub-store') {
+					uni.navigateTo({
+						url: '/pages/sub-store-list/sub-store-list'
+					})
+				}
 			}
 		}
 	}
@@ -565,7 +572,10 @@
 
 				.foot {
 
-					align-self: center;
+					align-self: center;				
+					text{
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
+					}
 
 					image {
 						width: 24rpx;
@@ -741,9 +751,10 @@
 								margin-top: 20rpx;
 								margin-bottom: 0rpx;
 							}
-							&.inactive{
+
+							&.inactive {
 								display: none;
-								
+
 								// 小程序端使用,小程序端的bug
 							}
 						}
@@ -756,6 +767,7 @@
 							text {
 								display: block;
 								white-space: pre-wrap;
+								@include fontStyle(28rpx, 400, #333333, 40rpx);
 							}
 
 							&.active {
@@ -830,6 +842,7 @@
 			.button-group {
 				@include flexX;
 				gap: 0 20rpx;
+
 				.canlce {
 					padding: 20rpx 42rpx;
 					background: #ffffff;
@@ -840,6 +853,7 @@
 						@include fontStyle(32rpx, 400, #48C368, 44rpx);
 					}
 				}
+
 				.pay {
 					padding: 20rpx 42rpx;
 					background: linear-gradient(132deg, #69DB38 0%, #48C368 100%) #F1F2F2;

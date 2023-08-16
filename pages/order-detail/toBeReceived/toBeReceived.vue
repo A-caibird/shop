@@ -96,8 +96,8 @@
 							<text>
 								1、您参与众筹是支持将创意变为现实的过程，而不是直接的商品交易，因此存在一定的风险。请您根据自己的判断选择、支持众筹项目。
 							</text>
-						</view class="item">
-						<view>
+						</view >
+						<view class="item">
 							<text>
 								2、众筹存在于发起人与支持者之间，作为第三方…
 							</text>
@@ -320,7 +320,8 @@
 					.right {
 						border-radius: 86rpx;
 						background: #F1F2F2;
-						padding: 10rpx 22rpx;
+						padding: 3rpx 22rpx;
+						padding-bottom: 7rpx;
 
 						text {
 							@include fontStyle(24rpx, 400, #666666, 34rpx);

@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar bgColor="#ffffff" height="54" title="分店列表">
+		<u-navbar bgColor="#ffffff" height="54" title="分店列表" :autoBack="true">
 		</u-navbar>
 		<view class="list">
 			<view class="item" v-for="item of 5" :key="item">

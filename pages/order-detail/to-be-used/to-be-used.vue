@@ -128,7 +128,7 @@
 				<view class="divi">
 
 				</view>
-				<view class="foot">
+				<view class="foot" @tap="goTo('sub-store')">
 					<text>
 						更多适用门店
 					</text>
@@ -245,7 +245,7 @@
 						</text>
 					</view>
 					<view class="more">
-						<view class="title" @tap="tapCollapse" :class={inactive:isCollapse}  v-if="isCollapse==false">
+						<view class="title" @tap="tapCollapse" :class={inactive:isCollapse} v-if="isCollapse==false">
 							<view class="state">
 								<text>
 									{{displayState}}
@@ -292,7 +292,7 @@
 				<view class="order-number">
 					<text>订单号：</text>
 					<text>87767546777123440908</text>
-					<text @click="paste()" >复制</text>
+					<text @click="paste()">复制</text>
 				</view>
 				<view class="item">
 					<text>
@@ -399,6 +399,13 @@
 				uni.setClipboardData({
 					data: "87767546777123440908"
 				})
+			},
+			goTo(str) {
+				if (str == 'sub-store') {
+					uni.navigateTo({
+						url: '/pages/sub-store-list/sub-store-list'
+					})
+				}
 			}
 		}
 	}
@@ -684,7 +691,8 @@
 
 				.foot {
 					align-self: center;
-					@include fontStyle(28rpx,400,#333333,40rpx);
+					@include fontStyle(28rpx, 400, #333333, 40rpx);
+
 					image {
 						width: 24rpx;
 						height: 24rpx;
@@ -859,9 +867,10 @@
 								margin-top: 20rpx;
 								margin-bottom: 0rpx;
 							}
-							&.inactive{
+
+							&.inactive {
 								display: none;
-								
+
 								// 小程序端使用,小程序端的bug
 							}
 						}
@@ -874,6 +883,8 @@
 							text {
 								display: block;
 								white-space: pre-wrap;
+								@include fontStyle(28rpx, 400, #333333, 40rpx);
+
 							}
 
 							&.active {
