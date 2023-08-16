@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar height="98" leftIcon="">
+		<u-navbar height="90" leftIcon="">
 			<view class="u-nav-slot" slot="center">
 				<view class="back" @tap="back">
 					<image src="@/static/back.png">
@@ -79,13 +79,14 @@
 	::v-deep .uicon-true {
 		visibility: hidden;
 	}
-	
+
 	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.container {
 		@include full-screen-color;
 		background: #f3f4f5;
 		overflow-y: auto;
 		padding: 24rpx 24rpx;
+		position: relative;
 
 		.u-nav-slot {
 			width: 100%;
@@ -139,8 +140,7 @@
 							height: 4rpx;
 							position: absolute;
 							top: 50rpx;
-							left: 50%;
-							transform: translateX(-50%);
+							left: 50rpx;
 							background: #48C368;
 							transform: translateZ(0);
 						}
@@ -153,7 +153,7 @@
 		.list1 {
 			width: 100%;
 			position: relative;
-			top: 230rpx;
+			top: 220rpx;
 			@include flexY;
 			gap: 20rpx 0;
 			padding-bottom: 30rpx;
@@ -162,25 +162,29 @@
 		.list2 {
 			width: 100%;
 			position: relative;
-			top: 230rpx;
+			top: 220rpx;
 			@include flexY;
 			gap: 30rpx 0;
 			padding-bottom: 30rpx;
-			.item{
+			.item {
 				@include flexY;
-				gap:20rpx 0;
+				gap: 20rpx 0;
+
 				.store {
 					@include flexX;
-					gap:0 10rpx;
+					gap: 0 10rpx;
 					place-items: center;
+
 					.image-box {
 						border-radius: 50%;
 						width: 40rpx;
 						height: 40rpx;
+
 						image {
 							@include __hw100;
 						}
 					}
+
 					text {
 						display: block;
 						@include fontStyle(34rpx, 400, #5C5C5C, 34rpx);
