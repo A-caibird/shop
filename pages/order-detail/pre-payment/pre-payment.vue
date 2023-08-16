@@ -75,7 +75,7 @@
 				<view class="divi">
 
 				</view>
-				<view class="foot">
+				<view class="foot" @tap="goTo('sub-store')">
 					<text>
 						更多适用门店
 					</text>
@@ -331,6 +331,13 @@
 		methods: {
 			tapCollapse() {
 				this.isCollapse = !this.isCollapse;
+			},
+			goTo(str) {
+				if (str == 'sub-store') {
+					uni.navigateTo({
+						url: '/pages/sub-store-list/sub-store-list'
+					})
+				}
 			}
 		}
 	}
@@ -345,6 +352,15 @@
 		.content-box {
 			position: relative;
 			top: 140rpx;
+			@media (max-height:800px) {
+				top: 170rpx;
+			}
+			@media (min-height:800px) {
+				top: 170rpx;
+			}
+			@media (min-height:912px) {
+				top: 140rpx;
+			}
 			padding: 24rpx 24rpx;
 			padding-bottom: 200rpx;
 			@include flexY;
@@ -439,38 +455,35 @@
 						}
 
 						.time {
-							@include flex;
-							place-items: flex-start center;
-
+							@include flexX;
+							place-items: center;
 							image {
-								display: block;
 								width: 28rpx;
 								height: 28rpx;
-
 							}
 
 							text {
 								@include fontStyle(24rpx, 400, #666666, 34rpx);
-
-								&:first-child {
+								&:first-of-type{
 									margin-right: 20rpx;
 								}
 							}
 						}
 
 						.location {
-							@include flex;
+							@include flexX;
 							place-items: flex-start center;
 
 							image {
-								display: block;
 								width: 28rpx;
 								height: 28rpx;
+								position: relative;
+								top:5rpx;
 							}
 
 							text {
 								width: 434rpx;
-
+								display: inline-block;
 								@include fontStyle(24rpx, 400, #666666, 34rpx);
 							}
 						}
@@ -506,9 +519,10 @@
 				}
 
 				.foot {
-
 					align-self: center;
-
+					text{
+						@include fontStyle(28rpx,400,#333333,40rpx);
+					}
 					image {
 						width: 24rpx;
 						height: 24rpx;
@@ -698,6 +712,7 @@
 							text {
 								display: block;
 								white-space: pre-wrap;
+								@include fontStyle(28rpx, 400, #333333, 40rpx);
 							}
 					
 							&.active {

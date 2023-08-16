@@ -46,7 +46,7 @@
 								大叔小子烤鱼（天一广场店）
 							</text>
 						</view>
-						<view class="time">
+						<view class="time11">
 							<image src="@/static/time.png">
 							</image>
 							<text>
@@ -60,7 +60,7 @@
 							<image src="@/static/location.png">
 							</image>
 							<text>
-								距您120米 海曙区药行街152号(城隍庙地铁站D口步行440米)
+								距您120米  海曙区药行街152号(城隍庙地铁站D口步行440米)
 							</text>
 						</view>
 					</view>
@@ -75,7 +75,7 @@
 				<view class="divi">
 
 				</view>
-				<view class="foot">
+				<view class="foot" @tap="goTo('sub-store')">
 					<text>
 						更多适用门店
 					</text>
@@ -341,6 +341,13 @@
 		methods: {
 			tapCollapse() {
 				this.isCollapse = !this.isCollapse;
+			},
+			goTo(str) {
+				if (str == 'sub-store') {
+					uni.navigateTo({
+						url: '/pages/sub-store-list/sub-store-list'
+					})
+				}
 			}
 		}
 	}
@@ -359,6 +366,15 @@
 		.content-box {
 			position: relative;
 			top: 140rpx;
+			@media (max-height:800px) {
+				top: 170rpx;
+			}
+			@media (min-height:800px) {
+				top: 170rpx;
+			}
+			@media (min-height:912px) {
+				top: 140rpx;
+			}
 			padding: 24rpx 24rpx;
 			padding-bottom: 200rpx;
 			@include flexY;
@@ -467,6 +483,7 @@
 				@include part;
 				@include flexY;
 
+
 				.head {
 					@include flexX;
 					justify-content: space-between;
@@ -475,43 +492,44 @@
 						@include flexY;
 						gap: 16rpx 0;
 
+
 						.store-name {
 							@include fontStyle(32rpx, 500, #333333, 44rpx);
 						}
 
-						.time {
-							@include flex;
-							place-items: flex-start center;
+						.time11 {
+							@include flexX;
+							place-items: center;
 
 							image {
-								display: block;
 								width: 28rpx;
 								height: 28rpx;
-
 							}
 
 							text {
 								@include fontStyle(24rpx, 400, #666666, 34rpx);
+								display: inline-block;
 
-								&:first-child {
+								&:first-of-type {
 									margin-right: 20rpx;
 								}
 							}
 						}
 
 						.location {
-							@include flex;
+							@include flexX;
 							place-items: flex-start center;
 
 							image {
-								display: block;
 								width: 28rpx;
 								height: 28rpx;
+								position: relative;
+								top:5rpx;
 							}
 
 							text {
 								width: 434rpx;
-
+								display: inline-block;
 								@include fontStyle(24rpx, 400, #666666, 34rpx);
 							}
 						}
@@ -549,6 +567,10 @@
 				.foot {
 
 					align-self: center;
+
+					text {
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
+					}
 
 					image {
 						width: 24rpx;
@@ -724,9 +746,10 @@
 								margin-top: 20rpx;
 								margin-bottom: 0rpx;
 							}
-							&.inactive{
+
+							&.inactive {
 								display: none;
-								
+
 								// 小程序端使用,小程序端的bug
 							}
 						}
@@ -739,6 +762,7 @@
 							text {
 								display: block;
 								white-space: pre-wrap;
+								@include fontStyle(28rpx, 400, #333333, 40rpx);
 							}
 
 							&.active {

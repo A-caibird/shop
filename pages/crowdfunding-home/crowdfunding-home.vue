@@ -18,7 +18,7 @@
 								<input placeholder="搜索我的订单" placeholder-class="placeholder" class="input_">
 							</view>
 						</view>
-					
+
 						<view class="btn">
 							<button>
 								搜索
@@ -28,7 +28,7 @@
 				</view>
 				<view class="filter-area">
 					<view class="item">
-						<view>
+						<view class="title">
 							<text>全部众筹</text>
 						</view>
 						<view class="box">
@@ -47,7 +47,7 @@
 						</view>
 					</view>
 					<view class="item">
-						<view>
+						<view class="title">
 							<text>智能排序</text>
 						</view>
 						<view class="box">
@@ -156,7 +156,8 @@
 					height: 40rpx;
 					//微信小程序点击事件失效,可能是😏元素挡住了
 					//#ifdef MP-WEIXIN 
-					z-index: 2000000; 
+					z-index: 2000000;
+
 					//#endif 
 					image {
 						@include __hw100;
@@ -173,30 +174,32 @@
 					border-radius: 36rpx;
 					border: 1rpx solid #35984E;
 					margin-left: 20rpx;
-				
+
 					.left {
 						display: flex;
 						place-items: center;
 						align-items: center;
-						gap:0 13rpx;
+						gap: 0 13rpx;
+
 						.icon {
 							width: 24rpx;
 							height: 24rpx;
-							margin-left:34rpx;
+							margin-left: 34rpx;
 							margin-bottom: 20rpx;
+
 							image {
 								height: 100%;
 								width: 100%;
 							}
 						}
-				
+
 						.input-box {
 							width: 100%;
-				
+
 							.input_ {
 								@include fontStyle(28rpx, 400, #333333, 34rpx)
 							}
-				
+
 							.placeholder {
 								font-size: 28rpx;
 								font-family: PingFangSC-Regular, PingFang SC;
@@ -205,11 +208,11 @@
 							}
 						}
 					}
-				
+
 					.btn {
 						line-height: 40rpx;
 						margin-right: 5rpx;
-				
+
 						button {
 							width: 118rpx;
 							height: 64rpx;
@@ -351,8 +354,6 @@
 
 				.tags {
 					@include flexX;
-					flex-wrap: nowrap;
-					justify-content: flex-start;
 					gap: 8rpx;
 					box-sizing: border-box;
 					margin: 0rpx 16rpx;
@@ -361,14 +362,14 @@
 					flex-wrap: wrap;
 
 					.tag {
-						display: inline;
-						padding: 1rpx 1rpx;
+						display: inline-block;
 						background: #E9F9EE;
 						border-radius: 8rpx;
 
 						text {
-							font-size: 22rpx;
-							color: #48C368;
+							@include fontStyle(22rpx, 400, #48C368, 22rpx);
+							display: inline-block;
+							transform: translateY(-5rpx);
 						}
 					}
 				}

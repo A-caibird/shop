@@ -344,11 +344,11 @@
 			close() {
 				this.show = false;
 			},
-			goTo(str){
-					
-				if('combon'==str){
+			goTo(str) {
+
+				if ('combon' == str) {
 					uni.navigateTo({
-						url:'/pages/combo-detail/combo-detail'
+						url: '/pages/combo-detail/combo-detail'
 					})
 				}
 			}
@@ -361,11 +361,11 @@
 		width: 100%;
 		background: #f3f4f5;
 		box-sizing: border-box;
-		// position: absolute;
-		// top:0;
-		// right:0;
-		// left:0;
-		// bottom: 0;   //为了让高度自增加
+		position: absolute;
+		top:0;
+		right:0;
+		left:0;
+		bottom: 0;   //为了让高度自增加
 		overflow-y: auto;
 		@include flexY();
 
@@ -386,7 +386,8 @@
 				&>.image-box {
 					width: $Iw;
 					height: $Ih;
-					index:200000;
+					index: 200000;
+
 					image {
 						@include __hw100();
 					}
@@ -429,10 +430,8 @@
 			z-index: 1;
 			padding: 0rpx 20rpx;
 			padding-bottom: 50rpx;
-			height: auto;
 			box-sizing: border-box;
 			background: transparent;
-
 			.storeInfo {
 				width: 100%;
 				background-color: #ffffff;
@@ -453,9 +452,17 @@
 					gap: 20rpx;
 					margin-bottom: 10rpx;
 
-					text:nth-child(2) {
-						position: relative;
-						right: 10rpx;
+					text {
+						&:first-of-type {
+							;
+							@include fontStyle(24rpx, 500, #48C368, 34rpx);
+						}
+
+						&:last-of-type {
+							position: relative;
+							right: 10rpx;
+							@include fontStyle(24rpx, 400, #666666, 34rpx);
+						}
 					}
 				}
 
@@ -539,7 +546,8 @@
 						}
 
 						.distance {
-							@include flexX();
+							@include flexX;
+							place-items: flex-start center;
 
 							.icon {
 								width: 28rpx;
@@ -548,6 +556,8 @@
 								image {
 									width: 100%;
 									height: 100%;
+									position: relative;
+									top: -3rpx;
 								}
 							}
 
@@ -606,7 +616,7 @@
 						margin-right: 20rpx;
 						height: 30rpx;
 						position: relative;
-						top: 4rpx;
+						top:3rpx;
 						box-sizing: border-box;
 						padding: 5rpx 5rpx;
 
@@ -749,10 +759,14 @@
 										}
 
 										&>.button {
-											display: inline;
-											padding: 10rpx 20rpx;
+											display: inline-block;
 											background: linear-gradient(132deg, #69DB38 0%, #48C368 100%);
 											border-radius: 36rpx;
+											@include flexX;
+											justify-content: center;
+											place-items: center;
+											padding: 5rpx 0;
+											box-sizing: border-box;
 
 											&>text {
 												&:nth-child(1) {
@@ -761,6 +775,7 @@
 													font-weight: 500;
 													color: #FFFFFF;
 													line-height: 34rpx;
+
 												}
 											}
 										}
@@ -993,9 +1008,11 @@
 					.onetag {
 						background: #EBEBEB;
 						border-radius: 8rpx;
-						padding: 0rpx 10rpx;
-						display: inline;
+						display: inline-block;
 						margin-right: 15rpx;
+						box-sizing: border-box;
+						padding: 0rpx 10rpx;
+						padding-bottom: 6rpx;
 
 						text {
 							font-size: 24rpx;
@@ -1003,7 +1020,7 @@
 							font-weight: 400;
 							color: #666666;
 
-							&:nth-child(1) {
+							&:first-of-type {
 								margin-right: 10rpx;
 							}
 						}
@@ -1087,17 +1104,18 @@
 					margin-top: 30rpx;
 
 					.tag {
-						display: inline;
-						padding: 10rpx 10rpx;
+						display: inline-block;
 						background: #EBEBEB;
 						border-radius: 8rpx;
 
 						text {
+							display: inline-block;
+							padding: 10rpx 10rpx;
 							font-size: 24rpx;
 							font-family: PingFangSC-Regular, PingFang SC;
 							font-weight: 400;
 							color: #666666;
-							line-height: 34rpx;
+							line-height: 30rpx;
 						}
 					}
 				}

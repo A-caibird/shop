@@ -2,24 +2,26 @@
 	<view class="container">
 		<u-navbar leftIcon="" bgColor="#f3f4f5" height="54">
 			<view class="u-nav-slot" slot="center">
-				<view class="left" @tap="back">
-					<image src="../../static/back.png">
+				<view class="fir">
+					<view class="left" @tap="back">
+						<image src="../../static/back.png">
 
-					</image>
+						</image>
+					</view>
+					<view class="right">
+						<image src="../../static/star.png">
+
+						</image>
+						<image src="../../static/share.png">
+
+						</image>
+					</view>
 				</view>
-				<view class="right">
-					<image src="../../static/star.png">
-
-					</image>
-					<image src="../../static/share.png">
-
-					</image>
+				<view class="sec">
+					<classificate></classificate>
 				</view>
 			</view>
-		</u-navbar <view class="classificate">
-		<view class="classificate">
-			<classificate></classificate>
-		</view>
+		</u-navbar>
 		<view class="box">
 			<view class="combo-info">
 				<view class="name">
@@ -253,10 +255,9 @@
 				});
 			},
 			goTo(str) {
-				if (str == 'settle')
-				{
+				if (str == 'settle') {
 					uni.navigateTo({
-						url:'/pages/Settle-now/Settle-now'
+						url: '/pages/Settle-now/Settle-now'
 					})
 				}
 			}
@@ -277,39 +278,43 @@
 	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.u-nav-slot {
 		position: relative;
-		width: 100%;
-		@include flexX;
-		justify-content: space-between;
+		width: 100%;	
 		padding: 0rpx 24rpx;
-		place-items: center;
-
 		image {
 			width: 60rpx;
 			height: 60rpx;
 		}
-
-		.left {
-			width: 40rpx;
-			height: 40rpx;
-
-			image {
+		.fir {
+			@include flexX;
+			justify-content: space-between;
+			place-items: center;
+			.left {
 				width: 40rpx;
 				height: 40rpx;
-				position: absolute;
-				left: 32rpx;
-				top: 0;
-				z-index: 999;
+
+				image {
+					width: 40rpx;
+					height: 40rpx;
+					position: absolute;
+					left: 32rpx;
+					top: 0;
+					z-index: 999;
+				}
+			}
+
+			.right {
+				@include flexX;
+				place-items: center;
+				gap: 20rpx;
+
+				image:nth-child(1) {
+					margin-right: 10rpx;
+				}
 			}
 		}
 
-		.right {
-			@include flexX;
-			place-items: center;
-			gap: 20rpx;
-
-			image:nth-child(1) {
-				margin-right: 10rpx;
-			}
+		.sec {
+			margin-top:20rpx;
 		}
 	}
 
@@ -333,7 +338,7 @@
 			left: 0rpx;
 			top: 140rpx;
 			//#ifdef MP-WEIXIN
-			top: 156rpx;
+			top: 176rpx;
 			//#endif
 			width: 100%;
 			padding: 0rpx 36rpx;
@@ -344,7 +349,7 @@
 
 		.box {
 			position: relative;
-			top: 220rpx;
+			top: 240rpx;
 			overflow-y: auto;
 			margin-bottom: 40rpx;
 
@@ -392,12 +397,12 @@
 
 					&>.left {
 						text {
-							&:nth-child(1) {
+							&:first-of-type {
 								@include fontStyle(52rpx, 500, #FF7A00, 74rpx);
 								margin-right: 16rpx;
 							}
 
-							&:nth-child(2) {
+							&:last-of-type {
 								@include fontStyle(28rpx, 400, #999999, 40rpx);
 								text-decoration: line-through;
 							}
@@ -453,6 +458,11 @@
 					@include flexX;
 					justify-content: space-between;
 
+					text {
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
+
+					}
+
 					.money {
 						@include flexX;
 						gap: 20rpx;
@@ -465,6 +475,7 @@
 
 					text {
 						display: block;
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
 					}
 				}
 			}
@@ -504,6 +515,10 @@
 					// margin-bottom: 32rpx;
 					@include flexY;
 					gap: 10rpx;
+
+					text {
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
+					}
 				}
 			}
 
@@ -558,7 +573,7 @@
 
 					&>.location {
 						@include flexX;
-
+						place-items: flex-start;
 						image {
 							width: 28rpx;
 							height: 28rpx;
@@ -627,7 +642,7 @@
 				}
 
 				text {
-					@include fontStyle(32rpx, 400, #333333, 44rpx);
+					@include fontStyle(22rpx, 400, #333333, 24rpx);
 				}
 			}
 
@@ -653,7 +668,7 @@
 					border-radius: 0rpx 200rpx 200rpx 0rpx;
 
 					text {
-						@include fontStyle(32rpx, 400, #fffff, 44rpx);
+						@include fontStyle(32rpx, 400, #ffffff, 44rpx);
 					}
 				}
 			}

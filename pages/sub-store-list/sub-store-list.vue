@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar bgColor="#ffffff" height="54" title="分店列表">
+		<u-navbar bgColor="#ffffff" height="54" title="分店列表" :autoBack="true">
 		</u-navbar>
 		<view class="list">
 			<view class="item" v-for="item of 5" :key="item">
@@ -72,6 +72,15 @@
 			width: 100%;
 			position: relative;
 			top: 160rpx;
+			@media (max-height:800px) {
+				top: 190rpx;
+			}
+			@media (min-height:800px) {
+				top: 190rpx;
+			}
+			@media (min-height:912px) {
+				top: 160rpx;
+			}
 			padding: 20rpx 30rpx;
 			box-sizing: border-box;
 			
@@ -125,7 +134,7 @@
 
 				.distance {
 					@include flexX();
-
+					place-items: center;
 					text {
 						font-size: 24rpx;
 						font-family: PingFangSC-Regular, PingFang SC;

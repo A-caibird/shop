@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar height="98" leftIcon="">
+		<u-navbar height="68" leftIcon="">
 			<view class="u-nav-slot" slot="center">
 				<view class="back" @tap="back">
 					<image src="@/static/back.png">
@@ -79,13 +79,14 @@
 	::v-deep .uicon-true {
 		visibility: hidden;
 	}
-	
+
 	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.container {
 		@include full-screen-color;
 		background: #f3f4f5;
 		overflow-y: auto;
 		padding: 24rpx 24rpx;
+		position: relative;
 
 		.u-nav-slot {
 			width: 100%;
@@ -115,14 +116,23 @@
 
 			.selection {
 				width: 100%;
-				padding: 0 94rpx;
+				margin-bottom: 10rpx;
 				box-sizing: border-box;
 				@include flexX;
 				justify-content: space-between;
+				background: #ffffff;
 
 				.selectNav {
 					position: relative;
-
+					transform: translateZ(0);
+					background: #ffffff;
+					&:first-of-type{
+						margin-left:94rpx;
+						}
+					&:last-of-type{
+						margin-right:94rpx;
+					}
+					
 					text {
 						@include fontStyle(28rpx, 400, #333333, 40rpx);
 					}
@@ -138,11 +148,10 @@
 							width: 40rpx;
 							height: 4rpx;
 							position: absolute;
-							top: 50rpx;
+							top: 45rpx;
 							left: 50%;
-							transform: translateX(-50%);
 							background: #48C368;
-							transform: translateZ(0);
+							transform: translateX(-50%);
 						}
 					}
 				}
@@ -153,7 +162,16 @@
 		.list1 {
 			width: 100%;
 			position: relative;
-			top: 230rpx;
+			top: 220rpx;
+			@media (max-height:800px) {
+				top: 250rpx;
+			}
+			@media (min-height:800px) {
+				top: 250rpx;
+			}
+			@media (min-height:912px) {
+				top: 220rpx;
+			}
 			@include flexY;
 			gap: 20rpx 0;
 			padding-bottom: 30rpx;
@@ -162,28 +180,33 @@
 		.list2 {
 			width: 100%;
 			position: relative;
-			top: 230rpx;
+			top: 250rpx;
 			@include flexY;
 			gap: 30rpx 0;
 			padding-bottom: 30rpx;
-			.item{
+
+			.item {
 				@include flexY;
-				gap:20rpx 0;
+				gap: 20rpx 0;
+
 				.store {
 					@include flexX;
-					gap:0 10rpx;
+					gap: 0 10rpx;
 					place-items: center;
+
 					.image-box {
 						border-radius: 50%;
 						width: 40rpx;
 						height: 40rpx;
+
 						image {
 							@include __hw100;
 						}
 					}
+
 					text {
 						display: block;
-						@include fontStyle(34rpx, 400, #5C5C5C, 34rpx);
+						@include fontStyle(24rpx, 400, #5C5C5C, 34rpx);
 					}
 				}
 			}
