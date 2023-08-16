@@ -344,11 +344,11 @@
 			close() {
 				this.show = false;
 			},
-			goTo(str){
-					
-				if('combon'==str){
+			goTo(str) {
+
+				if ('combon' == str) {
 					uni.navigateTo({
-						url:'/pages/combo-detail/combo-detail'
+						url: '/pages/combo-detail/combo-detail'
 					})
 				}
 			}
@@ -386,7 +386,8 @@
 				&>.image-box {
 					width: $Iw;
 					height: $Ih;
-					index:200000;
+					index: 200000;
+
 					image {
 						@include __hw100();
 					}
@@ -453,9 +454,17 @@
 					gap: 20rpx;
 					margin-bottom: 10rpx;
 
-					text:nth-child(2) {
-						position: relative;
-						right: 10rpx;
+					text {
+						&:first-of-type {
+							;
+							@include fontStyle(24rpx, 500, #48C368, 34rpx);
+						}
+
+						&:last-of-type {
+							position: relative;
+							right: 10rpx;
+							@include fontStyle(24rpx, 400, #666666, 34rpx);
+						}
 					}
 				}
 
@@ -754,9 +763,10 @@
 											border-radius: 36rpx;
 											@include flexX;
 											justify-content: center;
-											place-items:center;
-											padding:5rpx 0;
+											place-items: center;
+											padding: 5rpx 0;
 											box-sizing: border-box;
+
 											&>text {
 												&:nth-child(1) {
 													font-size: 24rpx;
@@ -764,7 +774,7 @@
 													font-weight: 500;
 													color: #FFFFFF;
 													line-height: 34rpx;
-													
+
 												}
 											}
 										}
@@ -997,17 +1007,17 @@
 					.onetag {
 						background: #EBEBEB;
 						border-radius: 8rpx;
-						padding: 0rpx 10rpx;
-						display: inline;
+						display: inline-block;
 						margin-right: 15rpx;
-
+						box-sizing: border-box;
+						padding:0rpx 10rpx;
+						padding-bottom: 6rpx;
 						text {
 							font-size: 24rpx;
 							font-family: PingFangSC-Regular, PingFang SC;
 							font-weight: 400;
 							color: #666666;
-
-							&:nth-child(1) {
+							&:first-of-type {
 								margin-right: 10rpx;
 							}
 						}
