@@ -240,12 +240,11 @@
 						.originPrice {
 							@include textHidden();
 							width: 100rpx;
-							height:60rpx;
-							text-decoration: line-through;
-							text-decoration-color: #999999;
-							vertical-align: middle;
+							
 							text {
 								@include fontStyle(22rpx, 500, #999999, 22rpx);
+								text-decoration: line-through;
+								text-decoration-color: #999999;
 							}
 						}
 
@@ -254,7 +253,7 @@
 							width: 260rpx;
 
 							text {
-								@include fontStyle(24srpx, 500, #333333, 24rpx);
+								@include fontStyle(24rpx, 400, #333333, 24rpx);
 
 							}
 						}
