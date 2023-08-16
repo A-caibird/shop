@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<u-navbar height="90" leftIcon="">
+		<u-navbar height="68" leftIcon="">
 			<view class="u-nav-slot" slot="center">
 				<view class="back" @tap="back">
 					<image src="@/static/back.png">
@@ -116,14 +116,23 @@
 
 			.selection {
 				width: 100%;
-				padding: 0 94rpx;
+				margin-bottom: 10rpx;
 				box-sizing: border-box;
 				@include flexX;
 				justify-content: space-between;
+				background: #ffffff;
 
 				.selectNav {
 					position: relative;
-
+					transform: translateZ(0);
+					background: #ffffff;
+					&:first-of-type{
+						margin-left:94rpx;
+						}
+					&:last-of-type{
+						margin-right:94rpx;
+					}
+					
 					text {
 						@include fontStyle(28rpx, 400, #333333, 40rpx);
 					}
@@ -139,10 +148,10 @@
 							width: 40rpx;
 							height: 4rpx;
 							position: absolute;
-							top: 50rpx;
-							left: 50rpx;
+							top: 45rpx;
+							left: 50%;
 							background: #48C368;
-							transform: translateZ(0);
+							transform: translateX(-50%);
 						}
 					}
 				}
@@ -154,6 +163,15 @@
 			width: 100%;
 			position: relative;
 			top: 220rpx;
+			@media (max-height:800px) {
+				top: 250rpx;
+			}
+			@media (min-height:800px) {
+				top: 250rpx;
+			}
+			@media (min-height:912px) {
+				top: 220rpx;
+			}
 			@include flexY;
 			gap: 20rpx 0;
 			padding-bottom: 30rpx;
@@ -162,10 +180,11 @@
 		.list2 {
 			width: 100%;
 			position: relative;
-			top: 220rpx;
+			top: 250rpx;
 			@include flexY;
 			gap: 30rpx 0;
 			padding-bottom: 30rpx;
+
 			.item {
 				@include flexY;
 				gap: 20rpx 0;
@@ -187,7 +206,7 @@
 
 					text {
 						display: block;
-						@include fontStyle(34rpx, 400, #5C5C5C, 34rpx);
+						@include fontStyle(24rpx, 400, #5C5C5C, 34rpx);
 					}
 				}
 			}

@@ -28,7 +28,7 @@
 				</view>
 				<view class="filter-area">
 					<view class="item">
-						<view>
+						<view class="title">
 							<text>全部众筹</text>
 						</view>
 						<view class="box">
@@ -47,7 +47,7 @@
 						</view>
 					</view>
 					<view class="item">
-						<view>
+						<view class="title">
 							<text>智能排序</text>
 						</view>
 						<view class="box">

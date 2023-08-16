@@ -37,6 +37,8 @@
 			height: 26rpx;
 			background: #48C368;
 			border-radius: 2rpx;
+			position: relative;
+			top:2rpx;
 		}
 
 		&>.right {

@@ -116,6 +116,16 @@
 		@include __hw100();
 		@include __padding();
 		margin-top: 270rpx;
+		@media (max-height:800px) {
+			margin-top: 270rpx;
+		}
+		@media (min-height:800px) {
+			margin-top: 270rpx;
+		}
+		@media (min-height:912px) {
+			margin-top: 240rpx;
+		}
+		
 
 		.item {
 			@include __padding();

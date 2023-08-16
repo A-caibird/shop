@@ -206,6 +206,15 @@
 		.content-box {
 			position: relative;
 			top: 140rpx;
+			@media (max-height:800px) {
+				top: 170rpx;
+			}
+			@media (min-height:800px) {
+				top: 170rpx;
+			}
+			@media (min-height:912px) {
+				top: 140rpx;
+			}
 			padding: 24rpx 24rpx;
 			padding-bottom: 200rpx;
 			background: transparent;

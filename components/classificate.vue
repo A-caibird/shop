@@ -48,12 +48,12 @@
 	.classificate {
 		@include flexX;
 		justify-content: space-between;
-		// width: 100%;
+		width: 100%;
 		box-sizing: border-box;
-
+		background-color: #f3f4f5;
 		&>.item {
 			position: relative;
-
+			transform: translateZ(0);
 			text {
 				font-size: 28rpx;
 				font-family: PingFangSC-Regular, PingFang SC;
@@ -73,9 +73,9 @@
 					height: 4rpx;
 					position: absolute;
 					top: 45rpx;
-					left: 50%;
-					transform: (translateX(-50%)); //移动自身宽度的百分之五十左移
+					left:50%;
 					background: #48C368;
+					transform: translateX(-50%);
 				}
 			}
 		}

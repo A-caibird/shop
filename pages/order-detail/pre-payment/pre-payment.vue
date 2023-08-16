@@ -352,6 +352,15 @@
 		.content-box {
 			position: relative;
 			top: 140rpx;
+			@media (max-height:800px) {
+				top: 170rpx;
+			}
+			@media (min-height:800px) {
+				top: 170rpx;
+			}
+			@media (min-height:912px) {
+				top: 140rpx;
+			}
 			padding: 24rpx 24rpx;
 			padding-bottom: 200rpx;
 			@include flexY;
@@ -446,38 +455,35 @@
 						}
 
 						.time {
-							@include flex;
-							place-items: flex-start center;
-
+							@include flexX;
+							place-items: center;
 							image {
-								display: block;
 								width: 28rpx;
 								height: 28rpx;
-
 							}
 
 							text {
 								@include fontStyle(24rpx, 400, #666666, 34rpx);
-
-								&:first-child {
+								&:first-of-type{
 									margin-right: 20rpx;
 								}
 							}
 						}
 
 						.location {
-							@include flex;
+							@include flexX;
 							place-items: flex-start center;
 
 							image {
-								display: block;
 								width: 28rpx;
 								height: 28rpx;
+								position: relative;
+								top:5rpx;
 							}
 
 							text {
 								width: 434rpx;
-
+								display: inline-block;
 								@include fontStyle(24rpx, 400, #666666, 34rpx);
 							}
 						}

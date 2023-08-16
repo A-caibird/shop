@@ -1,7 +1,7 @@
 <template>
 	<view class="footer">
 		<u-tabbar :value="currentPage" @change="change1" :fixed="true" :placeholder="false" :safeAreaInsetBottom="false"
-			activeColor="#48C368" height="500rpx">
+			activeColor="#48C368" >
 			<u-tabbar-item text="首页推荐" class="item" @click="goTo(0)">
 				<image class="u-page__item__slot-icon-image" slot="active-icon" src="/static/toPage/homeActive.png">
 				</image>
@@ -94,5 +94,10 @@
 	}
 	.u-tabbar {
 		padding: 20rpx 0;
+	}
+		
+	::v-deep .u-tabbar__content__item-wrapper{
+		margin-bottom: 40rpx;
+		padding-top: 20rpx;
 	}
 </style>

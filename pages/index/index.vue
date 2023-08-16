@@ -21,7 +21,7 @@
 								<input placeholder="搜索我的订单" placeholder-class="placeholder" class="input_">
 							</view>
 						</view>
-					
+
 						<view class="btn">
 							<button>
 								搜索
@@ -275,32 +275,33 @@
 					height: 72rpx;
 					background: #FFFFFF;
 					border-radius: 36rpx;
-					border: 1rpx solid #35984E;
 					margin-left: 20rpx;
-				
+
 					.left {
 						display: flex;
 						place-items: center;
 						align-items: center;
-						gap:0 13rpx;
+						gap: 0 13rpx;
+
 						.icon {
 							width: 24rpx;
 							height: 24rpx;
-							margin-left:34rpx;
+							margin-left: 34rpx;
 							margin-bottom: 20rpx;
+
 							image {
 								height: 100%;
 								width: 100%;
 							}
 						}
-				
+
 						.input-box {
 							width: 100%;
-				
+
 							.input_ {
 								@include fontStyle(28rpx, 400, #333333, 34rpx)
 							}
-				
+
 							.placeholder {
 								font-size: 28rpx;
 								font-family: PingFangSC-Regular, PingFang SC;
@@ -309,11 +310,11 @@
 							}
 						}
 					}
-				
+
 					.btn {
 						line-height: 40rpx;
 						margin-right: 5rpx;
-				
+
 						button {
 							width: 118rpx;
 							height: 64rpx;
@@ -334,6 +335,15 @@
 
 		.mid-box {
 			margin-top: 80rpx;
+			@media (max-height:800px) {
+				margin-top: 120rpx;
+			}
+			@media (min-height:800px) {
+				margin-top: 120rpx;
+			}
+			@media (min-height:912px) {
+				margin-top: 80rpx;
+			}
 			// margin-bottom: 20rpx;  //距离底部的距离
 			padding: 20rpx 20rpx;
 			position: relative;

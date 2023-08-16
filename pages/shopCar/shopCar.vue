@@ -15,7 +15,7 @@
 				</text>
 			</view>
 		</u-navbar>
-
+<!-- #f3f4f5 -->
 
 		<view class="list">
 			<view class="item">
@@ -286,7 +286,16 @@
 
 		&>.list {
 			position: relative;
-			top: 152rpx;
+			top: 172rpx;
+			@media (max-height:800px) {
+				top: 202rpx;
+			}
+			@media (min-height:800px) {
+				top: 202rpx;
+			}
+			@media (min-height:912px) {
+				top: 172rpx;
+			}
 			margin: 24rpx 24rpx;
 
 			&>.item {
@@ -395,12 +404,17 @@
 						}
 
 						.num {
-							background: #FFFFFF;
-							border-radius: 8rpx;
+							background:transparent;
+							border-radius: 16rpx;
 							border: 1rpx solid #E2E2E2;
-
+							display:inline;
 							text {
-								@include fontStyle(24rpx, 400, #333333, 34rpx);
+								@include fontStyle(24rpx, 400, #333333, 30rpx);
+								
+								display: inline-block;
+								margin:5rpx 10rpx;
+								margin-bottom: 10rpx;
+								
 							}
 
 							position: absolute;

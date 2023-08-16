@@ -183,7 +183,7 @@
 			@include flexY;
 			gap: 40rpx;
 			position: relative;
-			top: 130rpx;
+			top: 180rpx;
 
 			.list {
 				width: 100%;
