@@ -749,11 +749,14 @@
 										}
 
 										&>.button {
-											display: inline;
-											padding: 10rpx 20rpx;
+											display: inline-block;
 											background: linear-gradient(132deg, #69DB38 0%, #48C368 100%);
 											border-radius: 36rpx;
-
+											@include flexX;
+											justify-content: center;
+											place-items:center;
+											padding:5rpx 0;
+											box-sizing: border-box;
 											&>text {
 												&:nth-child(1) {
 													font-size: 24rpx;
@@ -761,6 +764,7 @@
 													font-weight: 500;
 													color: #FFFFFF;
 													line-height: 34rpx;
+													
 												}
 											}
 										}
