@@ -16,7 +16,7 @@
 					</image>
 				</view>
 			</view>
-		</u-navbar <view class="classificate">
+		</u-navbar>
 		<view class="classificate">
 			<classificate></classificate>
 		</view>
@@ -253,10 +253,9 @@
 				});
 			},
 			goTo(str) {
-				if (str == 'settle')
-				{
+				if (str == 'settle') {
 					uni.navigateTo({
-						url:'/pages/Settle-now/Settle-now'
+						url: '/pages/Settle-now/Settle-now'
 					})
 				}
 			}
@@ -453,6 +452,11 @@
 					@include flexX;
 					justify-content: space-between;
 
+					text {
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
+
+					}
+
 					.money {
 						@include flexX;
 						gap: 20rpx;
@@ -465,6 +469,7 @@
 
 					text {
 						display: block;
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
 					}
 				}
 			}
@@ -504,6 +509,9 @@
 					// margin-bottom: 32rpx;
 					@include flexY;
 					gap: 10rpx;
+					text {
+						@include fontStyle(28rpx, 400, #333333, 40rpx);
+					}
 				}
 			}
 
