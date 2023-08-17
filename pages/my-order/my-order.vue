@@ -69,12 +69,6 @@
 							下单时间：2023.02.17 14:2
 						</text>
 						<text>
-							2-3人超值烤鱼套餐
-						</text>
-						<text>
-							下单时间：2023.02.17 14:2
-						</text>
-						<text>
 							数量：1
 						</text>
 						<text>
@@ -368,15 +362,19 @@
 			padding: 24rpx;
 			position: relative;
 			top: 230rpx;
+
 			@media (max-height:800px) {
 				top: 250rpx;
 			}
+
 			@media (min-height:800px) {
 				top: 250rpx;
 			}
+
 			@media (min-height:912px) {
 				top: 210rpx;
 			}
+
 			box-sizing: border-box;
 
 			&>.item {
@@ -447,14 +445,13 @@
 					margin-top: 4rpx;
 
 					.button {
-						padding: 16rpx 56rpx;
-
 						border-radius: 36rpx;
-						box-sizing: border-box;
 
 						text {
 							@include fontStyle(28rpx, 400, #ffffff, 40rpx);
-
+							display: block;
+							padding: 16rpx 30rpx;
+							box-sizing: border-box;
 						}
 
 						&.b1 {

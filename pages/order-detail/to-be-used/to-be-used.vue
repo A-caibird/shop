@@ -326,17 +326,6 @@
 				</view>
 				<view class="item">
 					<text>
-						消费时间：
-					</text>
-					<text>
-						2023.02.10
-					</text>
-					<text style="margin-left:20rpx">
-						14:32
-					</text>
-				</view>
-				<view class="item">
-					<text>
 						数量：
 					</text>
 
@@ -355,7 +344,7 @@
 				</view>
 				<view class="item">
 					<text>
-						待付款：
+						实付款：
 					</text>
 					<text>
 						¥129.00
@@ -518,12 +507,13 @@
 					}
 
 					.right {
-						background: #F1F2F2;
-						border-radius: 27rpx;
-						padding: 10rpx 22rpx;
-
+						
 						text {
+							display: block;
 							@include fontStyle(24rpx, 400, #666666, 34rpx);
+							background: #F1F2F2;		
+							padding: 10rpx 22rpx;
+							border-radius: 27rpx;
 						}
 					}
 				}

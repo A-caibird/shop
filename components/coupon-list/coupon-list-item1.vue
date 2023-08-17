@@ -66,13 +66,13 @@
 			position: absolute;
 			left: 0;
 			top: 0;
-			background: #FEF8E8;
-			border-radius: 16rpx 0rpx 16rpx 0rpx;
-			display: inline;
-			padding: 5rpx;
-
 			text {
-				@include fontStyle(22rpx, 400, #FDAC03, 32rpx);
+				display: block;
+				@include fontStyle(22rpx, 400, #FDAC03, 22rpx);
+				background: #FEF8E8;
+				border-radius: 16rpx;
+				padding: 5rpx 10rpx;
+				box-sizing: border-box;
 			}
 		}
 

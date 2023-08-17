@@ -204,7 +204,7 @@
 					<image src="@/static/phone.png">
 					</image>
 					<text>
-
+						联系电话
 					</text>
 				</view>
 			</view>
@@ -278,16 +278,19 @@
 	// 解决在小程需端,如果使用letIcon去掉左边的返回符号,但是会显示true,方法使用样式穿透
 	.u-nav-slot {
 		position: relative;
-		width: 100%;	
+		width: 100%;
 		padding: 0rpx 24rpx;
+
 		image {
 			width: 60rpx;
 			height: 60rpx;
 		}
+
 		.fir {
 			@include flexX;
 			justify-content: space-between;
 			place-items: center;
+
 			.left {
 				width: 40rpx;
 				height: 40rpx;
@@ -314,7 +317,7 @@
 		}
 
 		.sec {
-			margin-top:20rpx;
+			margin-top: 20rpx;
 		}
 	}
 
@@ -349,7 +352,24 @@
 
 		.box {
 			position: relative;
-			top: 240rpx;
+			top: 140rpx;
+
+			@media (max-height:800px) {
+				top: 220rpx;
+			}
+
+			@media (min-height:800px) {
+				top: 220rpx;
+			}
+
+			@media (min-height:912px) {
+				top: 180rpx;
+			}
+
+			@media (min-height:932px) {
+				top: 180rpx;
+			}
+
 			overflow-y: auto;
 			margin-bottom: 40rpx;
 
@@ -383,7 +403,7 @@
 				&>.image-box {
 					width: 100%;
 					height: 420rpx;
-
+					margin-top:20rpx;
 					image {
 						@include __hw100;
 
@@ -394,6 +414,7 @@
 					@include flexX;
 					justify-content: space-between;
 					margin-bottom: 40rpx;
+					align-items: flex-end;
 
 					&>.left {
 						text {
@@ -426,11 +447,11 @@
 						gap: 20rpx;
 
 						text {
-							&:nth-child(1) {
-								@include fontStyle(24rpx, 500, #111111, 34rpx);
+							&:first-of-type {
+								@include fontStyle(24rpx, 500, #333333, 34rpx);
 							}
 
-							&:nth-child(2) {
+							&:last-of-type {
 								@include fontStyle(24rpx, 400, #333333, 34rpx);
 							}
 						}
@@ -531,6 +552,7 @@
 				justify-content: space-between;
 
 				&>.left {
+
 					text {
 						@include fontStyle(28rpx, 500, #333333, 40rpx);
 					}
@@ -557,6 +579,7 @@
 				border-radius: 16rpx;
 				background: #FFFFFF;
 				padding: 24rpx;
+				padding-right: 40rpx;
 				@include flexX;
 				justify-content: space-between;
 				place-items: center;
@@ -566,6 +589,8 @@
 					@include flexY;
 
 					&>.title {
+						margin-bottom: 22rpx;
+
 						text {
 							@include fontStyle(28rpx, 500, #333333, 40rpx);
 						}
@@ -573,18 +598,20 @@
 
 					&>.location {
 						@include flexX;
-						place-items: flex-start;
+						align-items: flex-start;
+
 						image {
 							width: 28rpx;
 							height: 28rpx;
-							position: relative;
-							top: 10rpx;
+							// position: relative;
+							// top: 10rpx;
 
 						}
 
 						.distance {
 							text {
 								@include fontStyle(24rpx, 400, #666666, 34rpx);
+								display: block;
 							}
 						}
 					}
@@ -604,6 +631,7 @@
 						width: 64rpx;
 						height: 64rpx;
 						display: block;
+						margin-bottom: 16rpx;
 					}
 
 					text {

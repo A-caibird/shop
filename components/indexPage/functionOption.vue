@@ -34,11 +34,11 @@
 
 			}
 		},
-		methods:{
-			goTo(){
+		methods: {
+			goTo() {
 				console.log('succesful')
 				uni.navigateTo({
-					url:"/pages/store-details/store-details"
+					url: "/pages/store-details/store-details"
 				})
 			}
 		}
@@ -89,21 +89,23 @@
 			}
 
 			@mixin tag-style {
-				height: 32rpx;
-				background: #FEF8E8;
-				border-radius: 8rpx;
-				overflow: hidden;
-				text-overflow: ellipsis;
 				margin-right: 20rpx;
+				display: inline-block;
 
 				text {
+					// overflow: hidden;
+					// text-overflow: ellipsis;
+					display: inline-block;
 					font-size: 22rpx;
 					font-family: PingFangSC-Regular, PingFang SC;
 					font-weight: 400;
+					line-height: 22rpx;
+					background: #FEF8E8;
+					border-radius: 8rpx;
 					color: #FF7A00;
-					position: relative;
-					bottom: 10rpx;
 					white-space: nowrap;
+					padding: 5rpx;
+					box-sizing: border-box;
 				}
 			}
 
@@ -111,9 +113,11 @@
 				display: flex;
 				flex-direction: row;
 				margin-top: 15rpx;
+
 				.tag {
 					@include tag-style();
 				}
+
 				.location {
 					@include tag-style();
 				}

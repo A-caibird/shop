@@ -193,6 +193,7 @@
 						<view class="price">
 							<text>¥15.9</text>
 							<text>¥20</text>
+							<text>月售847</text>
 						</view>
 					</view>
 					<view class="button">
@@ -856,21 +857,31 @@
 						}
 
 						&>.price {
+							
+							
 							text {
 								font-family: PingFangSC-Medium, PingFang SC;
 								font-weight: 400;
 								line-height: 24rpx;
 
-								&:nth-child(1) {
+								&:nth-of-type(1) {
 									margin-right: 10rpx;
 									font-size: 36rpx;
 									color: #FF7A00;
 								}
 
-								&:nth-child(2) {
+								&:nth-of-type(2) {
 									color: #999999;
 									font-size: 24rpx;
 									text-decoration: line-through;
+								}
+								
+								&:nth-of-type(3) {
+									color: #999999;
+									font-size: 24rpx;
+									position: absolute;
+									right:0;
+									bottom:10rpx;
 								}
 							}
 						}

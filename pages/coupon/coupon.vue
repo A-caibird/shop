@@ -162,15 +162,18 @@
 		.list1 {
 			width: 100%;
 			position: relative;
-			top: 220rpx;
+			top: 190rpx;
 			@media (max-height:800px) {
-				top: 250rpx;
+				top: 220rpx;
 			}
 			@media (min-height:800px) {
-				top: 250rpx;
+				top: 220rpx;
 			}
 			@media (min-height:912px) {
-				top: 220rpx;
+				top: 190rpx;
+			}
+			@media (min-height:932px) {
+				top: 190rpx;
 			}
 			@include flexY;
 			gap: 20rpx 0;

@@ -194,12 +194,13 @@
 
 		.content-box {
 			position: relative;
-			inset: 80rpx auto auto auto;
+			margin-top:120rpx;
 			padding: 0rpx 24rpx;
 
 			.avatar-part {
 				@include flexX;
 				justify-content: space-between;
+				place-items: center;
 				margin-bottom: 58rpx;
 
 				.left {
