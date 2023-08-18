@@ -66,7 +66,6 @@
 		.bottomPart {
 			padding: 0 20rpx;
 			margin-top: 20rpx;
-
 			.title {
 				width: 320rpx;
 				height: 80rpx;
@@ -112,7 +111,8 @@
 			.tag-location {
 				display: flex;
 				flex-direction: row;
-				margin-top: 15rpx;
+				margin-top: 10rpx;
+				margin-bottom: 15rpx;
 
 				.tag {
 					@include tag-style();

@@ -215,7 +215,7 @@
 					}
 
 					text {
-						@include fontStyle(36rpx, 500, #333333, 50rpx);
+						@include fontStyle(36rpx, 700, #333333, 50rpx);
 					}
 				}
 
@@ -243,7 +243,7 @@
 
 					.left {
 						text {
-							@include fontStyle(28rpx, 500, #333333, 40rpx);
+							@include fontStyle(28rpx, 700, #333333, 40rpx);
 						}
 					}
 

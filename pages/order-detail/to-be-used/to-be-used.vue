@@ -10,6 +10,34 @@
 					待到店使用
 				</text>
 			</view>
+
+			<view class="part1">
+				<view class="combo-item">
+					<view class="left">
+						<image src="@/static/foodList/foodItem1.png">
+
+						</image>
+						<view class="info">
+							<text>
+								2-3人超值烤鱼套餐
+							</text>
+							<text>
+								周一至周五 免预约
+							</text>
+							<text>
+								随时退 过期自动退
+							</text>
+							<text>
+								¥129.00
+							</text>
+						</view>
+					</view>
+					<view class="right">
+						<image src="@/static/greyRight.png">
+						</image>
+					</view>
+				</view>
+			</view>
 			<view class="qr-code">
 				<view class="qr">
 					<image src="@/static/order-detail/Slice.png">
@@ -63,34 +91,6 @@
 					</view>
 				</view>
 			</view>
-			<view class="part1">
-				<view class="combo-item">
-					<view class="left">
-						<image src="@/static/foodList/foodItem1.png">
-
-						</image>
-						<view class="info">
-							<text>
-								2-3人超值烤鱼套餐
-							</text>
-							<text>
-								周一至周五 免预约
-							</text>
-							<text>
-								随时退 过期自动退
-							</text>
-							<text>
-								¥129.00
-							</text>
-						</view>
-					</view>
-					<view class="right">
-						<image src="@/static/greyRight.png">
-						</image>
-					</view>
-				</view>
-			</view>
-
 			<view class="part2">
 				<view class="head">
 					<view class="left">
@@ -401,6 +401,10 @@
 </script>
 
 <style lang="scss" scoped>
+	::v-deep .u-navbar__content__title[data-v-75dad532] {
+		font-weight: 700;
+	}
+
 	.container {
 		@include full-screen-color;
 		overflow-y: auto;
@@ -409,15 +413,19 @@
 		.content-box {
 			position: relative;
 			top: 140rpx;
+
 			@media (max-height:800px) {
 				top: 170rpx;
 			}
+
 			@media (min-height:800px) {
 				top: 170rpx;
 			}
+
 			@media (min-height:912px) {
 				top: 140rpx;
 			}
+
 			padding: 24rpx 24rpx;
 			padding-bottom: 200rpx;
 			@include flexY;
@@ -502,16 +510,16 @@
 
 					.left {
 						text {
-							@include fontStyle(28rpx, 500, #333333, 40rpx);
+							@include fontStyle(28rpx, 700, #333333, 40rpx);
 						}
 					}
 
 					.right {
-						
+
 						text {
 							display: block;
 							@include fontStyle(24rpx, 400, #666666, 34rpx);
-							background: #F1F2F2;		
+							background: #F1F2F2;
 							padding: 10rpx 22rpx;
 							border-radius: 27rpx;
 						}
@@ -623,7 +631,7 @@
 
 						.time {
 							@include flexX;
-							place-items:  center;
+							place-items: center;
 
 							image {
 								width: 28rpx;
@@ -633,6 +641,7 @@
 
 							text {
 								@include fontStyle(24rpx, 400, #666666, 34rpx);
+
 								&:first-of-type {
 									margin-right: 20rpx;
 								}
@@ -642,11 +651,12 @@
 						.location {
 							@include flexX;
 							place-items: flex-start center;
+
 							image {
 								width: 28rpx;
 								height: 28rpx;
 								position: relative;
-								top:5rpx;
+								top: 5rpx;
 							}
 
 							text {
@@ -880,6 +890,7 @@
 							text {
 								display: block;
 								white-space: pre-wrap;
+								margin-top:10rpx;
 								@include fontStyle(28rpx, 400, #333333, 40rpx);
 
 							}

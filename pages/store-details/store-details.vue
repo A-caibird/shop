@@ -363,10 +363,10 @@
 		background: #f3f4f5;
 		box-sizing: border-box;
 		position: absolute;
-		top:0;
-		right:0;
-		left:0;
-		bottom: 0;   //为了让高度自增加
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0; //为了让高度自增加
 		overflow-y: auto;
 		@include flexY();
 
@@ -433,6 +433,7 @@
 			padding-bottom: 50rpx;
 			box-sizing: border-box;
 			background: transparent;
+
 			.storeInfo {
 				width: 100%;
 				background-color: #ffffff;
@@ -520,7 +521,7 @@
 					text {
 						font-size: 28rpx;
 						font-family: PingFangSC-Regular, PingFang SC;
-						font-weight: 400;
+						font-weight: 600;
 						color: #333333;
 						line-height: 34rpx;
 
@@ -609,22 +610,18 @@
 					width: 100%;
 					position: relative;
 					margin-top: 10rpx;
-					place-items: center;
+					align-items: center;
 
 					.left {
-						background: #FEF8E8;
-						border-radius: 8rpx;
 						margin-right: 20rpx;
-						height: 30rpx;
-						position: relative;
-						top:3rpx;
-						box-sizing: border-box;
-						padding: 5rpx 5rpx;
 
 						text {
-							@include fontStyle(22rpx, 400, #FDAC03, 22rpx);
-							position: relative;
-							bottom: 14rpx;
+							@include fontStyle(22rpx, 400, #FDAC03, 24rpx);
+							display: inline-block;
+							box-sizing: border-box;
+							background: #FEF8E8;
+							border-radius: 8rpx;
+							padding:4rpx;
 						}
 					}
 
@@ -635,7 +632,7 @@
 							font-family: PingFangSC-Regular, PingFang SC;
 							font-weight: 400;
 							color: #333333;
-							line-height: 22rpx;
+							line-height: 24rpx;
 						}
 					}
 
@@ -682,7 +679,7 @@
 							@mixin font1 {
 								font-size: 32rpx;
 								font-family: PingFangSC-Medium, PingFang SC;
-								font-weight: 500;
+								font-weight: 700;
 								color: #333333;
 								line-height: 44rpx;
 							}
@@ -857,8 +854,8 @@
 						}
 
 						&>.price {
-							
-							
+
+
 							text {
 								font-family: PingFangSC-Medium, PingFang SC;
 								font-weight: 400;
@@ -875,13 +872,13 @@
 									font-size: 24rpx;
 									text-decoration: line-through;
 								}
-								
+
 								&:nth-of-type(3) {
 									color: #999999;
 									font-size: 24rpx;
 									position: absolute;
-									right:0;
-									bottom:10rpx;
+									right: 0;
+									bottom: 10rpx;
 								}
 							}
 						}

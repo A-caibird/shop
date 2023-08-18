@@ -197,15 +197,21 @@
 						</view>
 					</view>
 				</view>
-				<view class="mid">
 
-				</view>
 				<view class="right">
-					<image src="@/static/phone.png">
-					</image>
-					<text>
-						联系电话
-					</text>
+					<view class="divi">
+					</view>
+					<view class="phone-box">
+						<image src="@/static/phone.png">
+						</image>
+						<text>
+							联系电话
+						</text>
+					</view>
+
+					<view class="empty">
+
+					</view>
 				</view>
 			</view>
 		</view>
@@ -380,11 +386,9 @@
 				padding: 24rpx;
 				box-sizing: border-box;
 
-				&>* {
-					margin-bottom: 16rpx;
-				}
-
 				&>.name {
+					margin-bottom: 16rpx;
+
 					text {
 						@include fontStyle(40rpx, 500, #333333, 56rpx);
 					}
@@ -394,6 +398,7 @@
 					width: 100%;
 					@include flexX;
 					justify-content: space-between;
+					margin-bottom: 16rpx;
 
 					text {
 						@include fontStyle(24rpx, 400, #333333, 34rpx);
@@ -403,7 +408,8 @@
 				&>.image-box {
 					width: 100%;
 					height: 420rpx;
-					margin-top:20rpx;
+					margin-top: 20rpx;
+					margin-bottom: 16rpx;
 					image {
 						@include __hw100;
 
@@ -413,9 +419,8 @@
 				&>.price {
 					@include flexX;
 					justify-content: space-between;
-					margin-bottom: 40rpx;
+					margin-bottom: 30rpx;
 					align-items: flex-end;
-
 					&>.left {
 						text {
 							&:first-of-type {
@@ -439,16 +444,16 @@
 
 				&>.import-part {
 					@include flexY;
-					gap: 10rpx;
 
 					&>.item {
 						width: 100%;
 						@include flexX;
-						gap: 20rpx;
+						margin-top: 20rpx;
 
 						text {
 							&:first-of-type {
-								@include fontStyle(24rpx, 500, #333333, 34rpx);
+								@include fontStyle(24rpx, 700, #333333, 34rpx);
+								margin-right: 20rpx;
 							}
 
 							&:last-of-type {
@@ -463,7 +468,7 @@
 				margin: 32rpx 0rpx;
 
 				text {
-					@include fontStyle(28rpx, 500, #333333, 40rpx);
+					@include fontStyle(28rpx, 700, #333333, 40rpx);
 				}
 
 			}
@@ -505,7 +510,7 @@
 				margin: 32rpx 0rpx;
 
 				text {
-					@include fontStyle(28rpx, 500, #333333, 40rpx);
+					@include fontStyle(28rpx, 700, #333333, 40rpx);
 				}
 			}
 
@@ -554,7 +559,7 @@
 				&>.left {
 
 					text {
-						@include fontStyle(28rpx, 500, #333333, 40rpx);
+						@include fontStyle(28rpx, 700, #333333, 40rpx);
 					}
 				}
 
@@ -579,7 +584,7 @@
 				border-radius: 16rpx;
 				background: #FFFFFF;
 				padding: 24rpx;
-				padding-right: 40rpx;
+				padding-right: 0;
 				@include flexX;
 				justify-content: space-between;
 				place-items: center;
@@ -599,44 +604,52 @@
 					&>.location {
 						@include flexX;
 						align-items: flex-start;
+						position: relative;
 
 						image {
 							width: 28rpx;
 							height: 28rpx;
-							// position: relative;
-							// top: 10rpx;
-
 						}
 
 						.distance {
 							text {
-								@include fontStyle(24rpx, 400, #666666, 34rpx);
+								@include fontStyle(24rpx, 400, #666666, 24rpx);
 								display: block;
 							}
 						}
 					}
 				}
 
-				&>.mid {
-					width: 1rpx;
-					height: 100rpx;
-					background: #D8D8D8;
-				}
+
 
 				&>.right {
-					@include flexY;
-					place-items: center;
+					@include flexX;
+					align-items: center;
+					justify-content: space-between;
 
-					image {
-						width: 64rpx;
-						height: 64rpx;
-						display: block;
-						margin-bottom: 16rpx;
+					.divi {
+						width: 1rpx;
+						height: 100rpx;
+						background: #D8D8D8;
+
 					}
 
-					text {
-						display: block;
-						@include fontStyle(24rpx, 400, #333333, 34rpx);
+					.phone-box {
+						@include flexY;
+						margin: 0 32rpx;
+						place-items: center;
+
+						image {
+							width: 64rpx;
+							height: 64rpx;
+							display: block;
+							margin-bottom: 16rpx;
+						}
+
+						text {
+							display: block;
+							@include fontStyle(24rpx, 400, #333333, 34rpx);
+						}
 					}
 				}
 			}
@@ -666,7 +679,7 @@
 				image {
 					width: 48rpx;
 					height: 48rpx;
-					// margin-left:30rpx;
+
 				}
 
 				text {
