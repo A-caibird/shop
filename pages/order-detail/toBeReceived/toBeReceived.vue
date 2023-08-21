@@ -198,6 +198,9 @@
 </script>
 
 <style lang="scss" scoped>
+	::v-deep .u-navbar__content__title[data-v-75dad532] {
+		font-weight: 700;
+	}
 	.container {
 		@include full-screen-color;
 		overflow-y: auto;

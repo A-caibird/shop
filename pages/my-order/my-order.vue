@@ -69,12 +69,6 @@
 							下单时间：2023.02.17 14:2
 						</text>
 						<text>
-							2-3人超值烤鱼套餐
-						</text>
-						<text>
-							下单时间：2023.02.17 14:2
-						</text>
-						<text>
 							数量：1
 						</text>
 						<text>
@@ -93,7 +87,7 @@
 					</view>
 					<view class="button b2">
 						<text>
-							付款
+							查看物流
 						</text>
 					</view>
 					<view class="button b3">
@@ -311,7 +305,7 @@
 				margin-top: 20rpx;
 				margin-bottom: -40rpx;
 				background-color: #ffffff;
-
+				overflow-x: hidden; // ios app会导致左右滑动问题
 				.scroll-view_H {
 					white-space: nowrap;
 					width: 100%;
@@ -368,15 +362,19 @@
 			padding: 24rpx;
 			position: relative;
 			top: 230rpx;
+
 			@media (max-height:800px) {
 				top: 250rpx;
 			}
+
 			@media (min-height:800px) {
 				top: 250rpx;
 			}
+
 			@media (min-height:912px) {
 				top: 210rpx;
 			}
+
 			box-sizing: border-box;
 
 			&>.item {
@@ -432,7 +430,7 @@
 							@include fontStyle(28rpx, 400, #666666, 40rpx);
 
 							&:nth-child(1) {
-								@include fontStyle(32rpx, 500, #333333, 44rpx);
+								@include fontStyle(32rpx, 700, #333333, 44rpx);
 							}
 						}
 					}
@@ -447,14 +445,18 @@
 					margin-top: 4rpx;
 
 					.button {
-						padding: 16rpx 56rpx;
-
+						width: 174rpx;
+						height: 72rpx;
 						border-radius: 36rpx;
-						box-sizing: border-box;
+						position: relative;
 
 						text {
 							@include fontStyle(28rpx, 400, #ffffff, 40rpx);
-
+							position: absolute;
+							white-space: nowrap;
+							left: 50%;
+							top: 50%;
+							transform: translate3d(-50%,-50%,0);
 						}
 
 						&.b1 {

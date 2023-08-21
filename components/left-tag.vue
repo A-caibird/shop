@@ -43,7 +43,7 @@
 
 		&>.right {
 			text {
-				@include fontStyle(28rpx, 400, #333333, 40rpx);
+				@include fontStyle(28rpx, 700, #333333, 40rpx);
 			}
 		}
 	}

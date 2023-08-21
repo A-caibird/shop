@@ -51,9 +51,11 @@
 		width: 100%;
 		box-sizing: border-box;
 		background-color: #f3f4f5;
+
 		&>.item {
 			position: relative;
 			transform: translateZ(0);
+
 			text {
 				font-size: 28rpx;
 				font-family: PingFangSC-Regular, PingFang SC;
@@ -67,13 +69,15 @@
 					color: #48C368;
 				}
 
+				
+
 				&::before {
 					content: "";
 					width: 40rpx;
 					height: 4rpx;
 					position: absolute;
-					top: 45rpx;
-					left:50%;
+					top: 50rpx;
+					left: 50%;
 					background: #48C368;
 					transform: translateX(-50%);
 				}

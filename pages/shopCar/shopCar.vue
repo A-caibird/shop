@@ -2,7 +2,7 @@
 	<view class="container">
 		<u-navbar bgColor="#f3f4f5" leftIcon="" height="54">
 			<view class="u-nav-slot-center" slot="center">
-				<text>
+				<text style="font-weight: 700;">
 					购物车
 				</text>
 				<text>
@@ -15,7 +15,7 @@
 				</text>
 			</view>
 		</u-navbar>
-<!-- #f3f4f5 -->
+
 
 		<view class="list">
 			<view class="item">
@@ -127,7 +127,7 @@
 									<view class="popWindows">
 										<view class="image-box" @tap="close">
 											<image src="/static/close.png">
-								
+
 											</image>
 										</view>
 										<view class="title">
@@ -156,9 +156,9 @@
 												</text>
 											</view>
 										</view>
-								
+
 										<view class="divi">
-								
+
 										</view>
 										<view class="all1">
 											<view class="item1">
@@ -179,11 +179,11 @@
 											</view>
 										</view>
 									</view>
-								
+
 								</u-action-sheet>
 							</view>
 						</view>
-						<view class="button">
+						<view class="button" @tap="goTo('settle')">
 							<text>
 								立即结算
 							</text>
@@ -253,6 +253,13 @@
 			close() {
 				this.popShow = false;
 				this.$emit('change', this.popShow);
+			},
+			goTo(str) {
+				if (str == 'settle'){
+					uni.navigateTo({
+						url:'/pages/Settle-now/Settle-now'
+					})
+				}
 			}
 		}
 	}
@@ -287,15 +294,19 @@
 		&>.list {
 			position: relative;
 			top: 172rpx;
+
 			@media (max-height:800px) {
 				top: 202rpx;
 			}
+
 			@media (min-height:800px) {
 				top: 202rpx;
 			}
+
 			@media (min-height:912px) {
 				top: 172rpx;
 			}
+
 			margin: 24rpx 24rpx;
 
 			&>.item {
@@ -404,17 +415,13 @@
 						}
 
 						.num {
-							background:transparent;
-							border-radius: 16rpx;
-							border: 1rpx solid #E2E2E2;
-							display:inline;
 							text {
 								@include fontStyle(24rpx, 400, #333333, 30rpx);
-								
-								display: inline-block;
-								margin:5rpx 10rpx;
-								margin-bottom: 10rpx;
-								
+								border: 1rpx solid #E2E2E2;
+								background: transparent;
+								border-radius: 16rpx;
+								padding: 10rpx;
+
 							}
 
 							position: absolute;
@@ -454,16 +461,16 @@
 
 						&>.select-info {
 							&>.select {
-								text{
-									
+								text {
+
 									&:nth-of-type(1) {
 										@include fontStyle(24rpx, 400, #666666, 34rpx);
 									}
-									
+
 									&:nth-of-type(2) {
 										@include fontStyle(24rpx, 400, #666666, 34rpx);
 									}
-									
+
 									&:nth-of-type(3) {
 										@include fontStyle(36rpx, 500, #FF7A00, 56rpx);
 									}
@@ -472,8 +479,7 @@
 
 							&>.favorable {
 								@include flexX;
-								place-items: center;
-								align-items: center;
+
 								&>.reduce {
 									text {
 										@include fontStyle(24rpx, 400, #FF7A00, 34rpx);
@@ -487,6 +493,7 @@
 									place-items: center;
 									@include fontStyle(24rpx, 400, #FF7A00, 34rpx);
 									color: #FF7A00;
+
 									// position: absolute;
 									// left:200rpx;
 									// z-index: 1000000;
@@ -495,6 +502,7 @@
 										height: 22rpx;
 									}
 								}
+
 								.popWindows {
 									height: 560rpx;
 									overflow-y: auto;
@@ -503,50 +511,50 @@
 									padding: 20rpx 20rpx;
 									box-sizing: border-box;
 									position: relative;
-								
+
 									.image-box {
 										position: absolute;
 										right: 22rpx;
 										top: 25rpx;
-								
+
 										image {
 											width: 32rpx;
 											height: 32rpx;
 										}
 									}
-								
+
 									&>.title {
 										text {
 											display: block;
-								
+
 											&:first-child {
 												@include fontStyle(32rpx, 500, #333333, 44rpx);
 												color: #333333;
 											}
-								
+
 											&:last-child {
 												@include fontStyle(24rpx, 400, #BBBBBB, 34rpx);
 												color: #BBBBBB;
 											}
 										}
 									}
-								
+
 									&>.info {
 										width: 100%;
 										margin-top: 46rpx;
 										@include flexY;
 										gap: 20rpx;
-								
+
 										&>.item {
 											@include flexX;
 											justify-content: space-between;
-								
+
 											text {
 												&:nth-child(1) {
 													@include fontStyle(28rpx, 400, #666666, 44rpx);
 													color: #666666;
 												}
-								
+
 												&:nth-child(2) {
 													@include fontStyle(24rpx, 400, #333333, 34rpx);
 													color: #333333;
@@ -554,28 +562,29 @@
 											}
 										}
 									}
-								
+
 									&>.divi {
 										width: 100%;
 										height: 1rpx;
 										background: #EBEBEB;
 										margin: 32rpx 0;
 									}
-								
+
 									&>.all1 {
 										width: 100%;
 										@include flexY;
 										gap: 20rpx 0;
+
 										&>.item1 {
 											@include flexX;
 											justify-content: space-between;
-								
+
 											text {
 												&:first-child {
 													@include fontStyle(28rpx, 500, #333333, 44rpx);
 													color: #333333;
 												}
-								
+
 												&:last-child {
 													@include fontStyle(28rpx, 500, #FF7A00, 34rpx);
 													color: #FF7A00;
@@ -588,13 +597,12 @@
 						}
 
 						&>.button {
-							background: linear-gradient(132deg, #69DB38 0%, #48C368 100%);
-							border-radius: 36rpx;
-							box-sizing: border-box;
-							padding: 14rpx 34rpx;
-
 							text {
 								@include fontStyle(28rpx, 400, #ffffff, 40rpx);
+								display: block;
+								background: linear-gradient(132deg, #69DB38 0%, #48C368 100%);
+								border-radius: 36rpx;
+								padding: 14rpx 34rpx;
 							}
 						}
 					}

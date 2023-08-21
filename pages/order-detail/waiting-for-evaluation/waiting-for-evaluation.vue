@@ -375,6 +375,9 @@
 </script>
 
 <style lang="scss" scoped>
+	::v-deep .u-navbar__content__title[data-v-75dad532] {
+		font-weight: 700;
+	}
 	.container {
 		@include full-screen-color;
 		overflow-y: auto;
@@ -774,6 +777,7 @@
 								display: block;
 								white-space: pre-wrap;
 								@include fontStyle(28rpx, 400, #333333, 40rpx);
+								margin-top:10rpx;
 							}
 
 							&.active {

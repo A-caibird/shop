@@ -105,7 +105,7 @@
 						text: '居家装修'
 					},
 					{
-						imagePath: "/static/indexPage/foot.png",
+						imagePath: "/static/indexPage/hotel.png",
 						text: '酒店名宿'
 					},
 				],
@@ -271,12 +271,12 @@
 					display: flex;
 					place-items: center;
 					justify-content: space-between;
-					width: 640rpx;
+					width: 615rpx;
 					height: 72rpx;
 					background: #FFFFFF;
 					border-radius: 36rpx;
 					margin-left: 20rpx;
-
+					
 					.left {
 						display: flex;
 						place-items: center;
@@ -334,15 +334,18 @@
 		}
 
 		.mid-box {
-			margin-top: 80rpx;
+			margin-top: 50rpx;
 			@media (max-height:800px) {
-				margin-top: 120rpx;
+				margin-top: 90rpx;
 			}
 			@media (min-height:800px) {
-				margin-top: 120rpx;
+				margin-top: 90rpx;
 			}
 			@media (min-height:912px) {
-				margin-top: 80rpx;
+				margin-top: 50rpx;
+			}
+			@media (min-height:932px) {
+				margin-top: 85rpx;
 			}
 			// margin-bottom: 20rpx;  //距离底部的距离
 			padding: 20rpx 20rpx;

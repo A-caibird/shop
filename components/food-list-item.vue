@@ -115,17 +115,19 @@
 	.list-area {
 		@include __hw100();
 		@include __padding();
-		margin-top: 270rpx;
+		margin-top: 180rpx;
 		@media (max-height:800px) {
-			margin-top: 270rpx;
+			margin-top: 220rpx;
 		}
 		@media (min-height:800px) {
-			margin-top: 270rpx;
+			margin-top: 220rpx;
 		}
 		@media (min-height:912px) {
-			margin-top: 240rpx;
+			margin-top: 180rpx;
 		}
-		
+		@media (min-height:932px) {
+			margin-top: 180rpx;
+		}
 
 		.item {
 			@include __padding();

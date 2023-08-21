@@ -194,12 +194,13 @@
 
 		.content-box {
 			position: relative;
-			inset: 80rpx auto auto auto;
+			margin-top:120rpx;
 			padding: 0rpx 24rpx;
 
 			.avatar-part {
 				@include flexX;
 				justify-content: space-between;
+				place-items: center;
 				margin-bottom: 58rpx;
 
 				.left {
@@ -214,7 +215,7 @@
 					}
 
 					text {
-						@include fontStyle(36rpx, 500, #333333, 50rpx);
+						@include fontStyle(36rpx, 700, #333333, 50rpx);
 					}
 				}
 
@@ -242,7 +243,7 @@
 
 					.left {
 						text {
-							@include fontStyle(28rpx, 500, #333333, 40rpx);
+							@include fontStyle(28rpx, 700, #333333, 40rpx);
 						}
 					}
 
