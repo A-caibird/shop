@@ -410,6 +410,7 @@
 					height: 420rpx;
 					margin-top: 20rpx;
 					margin-bottom: 16rpx;
+
 					image {
 						@include __hw100;
 
@@ -421,6 +422,7 @@
 					justify-content: space-between;
 					margin-bottom: 30rpx;
 					align-items: flex-end;
+
 					&>.left {
 						text {
 							&:first-of-type {
@@ -482,7 +484,8 @@
 
 				&>.price {
 					@include flexX;
-					justify-content: space-between;
+					margin-top:10rpx;
+					margin-bottom: 32rpx;
 
 					text {
 						@include fontStyle(28rpx, 400, #333333, 40rpx);
@@ -496,6 +499,7 @@
 				}
 
 				&>.Note-details {
+					margin-top:10rpx;
 					width: 100%;
 					box-sizing: border-box;
 
@@ -522,6 +526,7 @@
 				box-sizing: border-box;
 
 				.validity-period {
+					margin-top:10rpx;
 					margin-bottom: 32rpx;
 
 					text {
@@ -530,6 +535,7 @@
 				}
 
 				.use-time {
+					margin-top:10rpx;
 					margin-bottom: 32rpx;
 
 					text {
